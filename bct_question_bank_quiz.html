@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTCOE704C: Blockchain Technology — Interactive MCQ Quiz & CO-03 Descriptive Guide</title>
+  <style>
+    :root {
+      --bg-primary: #090d16;
+      --bg-secondary: #111827;
+      --bg-card: #161f33;
+      --bg-card-hover: #1c2740;
+      --bg-elevated: #1e293b;
+      --bg-hinglish: #17152b;
+      --border-subtle: #26334d;
+      --border-accent: #3b82f6;
+      --border-hinglish: #8b5cf6;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-purple: #a855f7;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --correct-bg: rgba(16, 185, 129, 0.14);
+      --correct-border: #10b981;
+      --wrong-bg: rgba(244, 63, 94, 0.14);
+      --wrong-border: #f43f5e;
+      --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.08), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(168, 85, 247, 0.08), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.05), transparent 35%);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+      padding-bottom: 4rem;
+    }
+
+    /* Top Institution Header */
+    .inst-banner {
+      background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.5rem 1.25rem;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .inst-header-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .inst-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .inst-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .inst-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .course-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .meta-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .meta-pill strong {
+      color: var(--accent-blue);
+    }
+
+    /* Sticky Dashboard Bar */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.25rem;
+      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .main-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 0.52rem 0.95rem;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card-hover);
+      color: #fff;
+      border-color: #3b82f6;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      color: #ffffff;
+      border-color: #60a5fa;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+    }
+
+    .tab-btn.q4-highlight {
+      border-color: rgba(168, 85, 247, 0.6);
+    }
+
+    .tab-btn.q4-highlight.active {
+      background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+      border-color: #c084fc;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
+    }
+
+    /* Score & Action Controls */
+    .quiz-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .score-chip {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      padding: 0.45rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem 0.8rem;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .action-btn:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      height: 4px;
+      background: #1e293b;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      max-width: 1180px;
+      margin: 1.75rem auto 0;
+      padding: 0 1.25rem;
+    }
+
+    .section-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-banner h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .section-banner p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Search & Filter Bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 240px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    /* Question Cards */
+    .mcq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-lg);
+      transition: border-color 0.2s ease;
+    }
+
+    .q-card:hover {
+      border-color: #334155;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .q-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-co {
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-bl {
+      background: rgba(168, 85, 247, 0.14);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .badge-marks {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .q-title {
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+
+    .options-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.7rem;
+    }
+
+    .opt-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      line-height: 1.45;
+    }
+
+    .opt-btn:hover:not(.disabled) {
+      background: var(--bg-elevated);
+      border-color: #475569;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .opt-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: #1e293b;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .opt-btn.correct {
+      background: var(--correct-bg);
+      border-color: var(--correct-border);
+      color: #ecfdf5;
+    }
+
+    .opt-btn.correct .opt-letter {
+      background: var(--correct-border);
+      color: #052e16;
+    }
+
+    .opt-btn.wrong {
+      background: var(--wrong-bg);
+      border-color: var(--wrong-border);
+      color: #fff1f2;
+    }
+
+    .opt-btn.wrong .opt-letter {
+      background: var(--wrong-border);
+      color: #fff;
+    }
+
+    /* Explanation Box */
+    .exp-box {
+      margin-top: 1.1rem;
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 1rem;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .exp-box.visible {
+      display: block;
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .exp-card-en {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .exp-card-hi {
+      background: var(--bg-hinglish);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-left: 3px solid var(--accent-purple);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: #e9d5ff;
+    }
+
+    .exp-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .exp-card-en .exp-label {
+      color: var(--accent-blue);
+    }
+
+    .exp-card-hi .exp-label {
+      color: #c084fc;
+    }
+
+    /* Descriptive Section (Section 4 & Q4 Spotlight) */
+    .desc-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .desc-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .desc-pill:hover {
+      border-color: var(--accent-purple);
+      color: #fff;
+    }
+
+    .desc-pill.highlight-q4 {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: #a855f7;
+      color: #e9d5ff;
+    }
+
+    .desc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .desc-card.q4-featured {
+      border: 2px solid #8b5cf6;
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.18);
+    }
+
+    .desc-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0.6rem 0 1.2rem;
+      line-height: 1.35;
+    }
+
+    .desc-subhead {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin: 1.25rem 0 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .desc-body p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .desc-body ul, .desc-body ol {
+      padding-left: 1.35rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+    }
+
+    .desc-body li {
+      margin-bottom: 0.45rem;
+    }
+
+    .desc-body li strong {
+      color: #f8fafc;
+    }
+
+    /* Diagram Container */
+    .diagram-wrapper {
+      background: #0b1120;
+      border: 1px solid #26334d;
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin: 1.35rem 0;
+      overflow-x: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.85rem;
+      text-align: center;
+    }
+
+    .diagram-svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Comparison Table */
+    .comp-table-wrap {
+      overflow-x: auto;
+      margin: 1.15rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.89rem;
+      text-align: left;
+    }
+
+    .comp-table th {
+      background: #1e293b;
+      color: #38bdf8;
+      font-weight: 700;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comp-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #1e293b;
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .comp-table tr:nth-child(even) td {
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    /* Hinglish Deep-Dive Box in Descriptive Section */
+    .hinglish-master-box {
+      background: linear-gradient(135deg, #1a1433 0%, #121024 100%);
+      border: 1px solid #7c3aed;
+      border-left: 5px solid #a855f7;
+      border-radius: 14px;
+      padding: 1.35rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .hinglish-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #d8b4fe;
+      margin-bottom: 0.8rem;
+    }
+
+    .hinglish-master-box p {
+      color: #ede9fe;
+      font-size: 0.94rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hinglish-master-box ul {
+      padding-left: 1.3rem;
+      color: #ddd6fe;
+      font-size: 0.92rem;
+    }
+
+    .hinglish-master-box li {
+      margin-bottom: 0.45rem;
+    }
+
+    .hinglish-master-box strong {
+      color: #facc15;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .inst-title { font-size: 1.2rem; }
+      .options-list { grid-template-columns: 1fr; }
+      .desc-card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Institution & Course Banner -->
+  <header class="inst-banner">
+    <div class="container">
+      <div class="inst-header-grid">
+        <div>
+          <span class="inst-badge">NAAC Grade B++ (Cycle-II 2023–2028) • Question Bank Portal</span>
+          <h1 class="inst-title">SSVPS Bapusaheb Shivajirao Deore College of Engineering, Dhule</h1>
+          <p class="inst-subtitle">Department of Computer Engineering • Interactive Quiz &amp; Descriptive Exam Guide (English + Hinglish)</p>
+        </div>
+        <div class="course-meta-pills">
+          <div class="meta-pill"><strong>Program:</strong> Final B.Tech (Computer Engg.)</div>
+          <div class="meta-pill"><strong>Code:</strong> BTCOE704C</div>
+          <div class="meta-pill"><strong>Course:</strong> Blockchain Technology</div>
+          <div class="meta-pill"><strong>Coordinator:</strong> Dr. R. V. Patil</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation & Live Score Bar -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <div class="main-tabs">
+        <button class="tab-btn active" onclick="switchView('all-mcq')" id="tab-all-mcq">All MCQs (30)</button>
+        <button class="tab-btn" onclick="switchView('co1')" id="tab-co1">CO-01 MCQs (10)</button>
+        <button class="tab-btn" onclick="switchView('co2')" id="tab-co2">CO-02 MCQs (10)</button>
+        <button class="tab-btn" onclick="switchView('co3')" id="tab-co3">CO-03 MCQs (10)</button>
+        <button class="tab-btn q4-highlight" onclick="switchView('descriptive')" id="tab-descriptive">★ Q4 &amp; Descriptive (CO-03 • Diagrams + Hinglish)</button>
+      </div>
+      <div class="quiz-controls">
+        <div class="score-chip" id="score-display">Score: 0 / 0 (0 Attempted)</div>
+        <button class="action-btn" onclick="toggleAllExplanations()" id="toggle-exp-btn">Show All Answers &amp; Hinglish</button>
+        <button class="action-btn" onclick="resetQuiz()">Reset Quiz</button>
+      </div>
+    </div>
+  </nav>
+  <div class="progress-track">
+    <div class="progress-fill" id="quiz-progress"></div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="main-content">
+
+    <!-- MCQ VIEW -->
+    <section id="mcq-section">
+      <div class="section-banner">
+        <div>
+          <h2 id="mcq-view-title">Interactive Multiple-Choice Quiz (CO-01, CO-02 &amp; CO-03)</h2>
+          <p>Click any option to verify your answer immediately and unlock detailed English + Hinglish explanations (including special diagram breakdowns on Q4).</p>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="mcq-search" class="search-input" placeholder="Search questions by keyword (e.g., Merkle, RAFT, Bitcoin, 51%, SMR, Q4)..." oninput="renderMCQs()" />
+      </div>
+
+      <div class="mcq-grid" id="mcq-container"></div>
+    </section>
+
+    <!-- DESCRIPTIVE VIEW (Section 4 & Q4 Detailed Answer + Diagrams + Hinglish) -->
+    <section id="descriptive-section" class="hidden">
+      <div class="section-banner" style="border-left-color: #a855f7;">
+        <div>
+          <h2>Section 4: Descriptive Type Questions on CO-03 (6 Marks Each) — With Spotlight on Q4 (RAFT vs. Paxos)</h2>
+          <p>Complete exam-ready 6-mark answers, architectural &amp; protocol SVG diagrams, comparison tables, and step-by-step Hinglish explanations.</p>
+        </div>
+      </div>
+
+      <div class="desc-nav-pills">
+        <button class="desc-pill highlight-q4" onclick="scrollToDesc('desc-q4')">★ Jump to Q4: RAFT Consensus &amp; Comparison with Paxos</button>
+        <button class="desc-pill" onclick="scrollToDesc('desc-q1')">Q1: Public, Private &amp; Permissioned Blockchains</button>
+        <button class="desc-pill" onclick="scrollToDesc('desc-q2')">Q2: Design Challenges of Permissioned Blockchains</button>
+        <button class="desc-pill" onclick="scrollToDesc('desc-q3')">Q3: State Machine Replication (SMR)</button>
+        <button class="desc-pill" onclick="scrollToDesc('desc-q5')">Q5: Byzantine Faults &amp; BFT Mechanisms</button>
+      </div>
+
+      <!-- DESCRIPTIVE Q4 (Placed at top or highlighted for immediate visibility, plus ordered Q1-Q5) -->
+      <!-- Let's display Q1 to Q5 in order AND highlight Q4 prominently, with quick jump buttons! -->
+
+      <!-- Q1 -->
+      <article class="desc-card" id="desc-q1">
+        <div class="q-badges">
+          <span class="badge badge-co">CO-03 • Descriptive Q.1</span>
+          <span class="badge badge-bl">Bloom's Level: Understand</span>
+          <span class="badge badge-marks">6 Marks</span>
+        </div>
+        <h3 class="desc-title">Q1. Explain public, private, and permissioned blockchains with suitable examples.</h3>
+        <div class="desc-body">
+          <div class="desc-subhead">1. Overview of Blockchain Access &amp; Governance Models</div>
+          <p>Blockchains are classified based on <strong>who is allowed to join the network (read/write access)</strong> and <strong>who is authorized to participate in consensus (validate and append blocks)</strong>. The three primary architectures are Public (Permissionless), Private, and Permissioned (Consortium/Enterprise) blockchains.</p>
+
+          <div class="desc-subhead">2. Public Blockchain (Permissionless)</div>
+          <ul>
+            <li><strong>Definition:</strong> An open, completely decentralized network where any individual with an internet connection can join, read the ledger, submit transactions, and act as a validator/miner without prior authorization.</li>
+            <li><strong>Consensus &amp; Security:</strong> Relies on cryptoeconomic consensus algorithms such as <em>Proof of Work (PoW)</em> or <em>Proof of Stake (PoS)</em> to prevent Sybil attacks in an untrusted environment.</li>
+            <li><strong>Characteristics:</strong> High censorship resistance, full transparency, pseudonymous identities, but lower transaction throughput (TPS) and higher latency.</li>
+            <li><strong>Suitable Examples:</strong> <strong>Bitcoin</strong> (peer-to-peer digital currency), <strong>Ethereum</strong> (public smart contract platform), <strong>Solana</strong>.</li>
+          </ul>
+
+          <div class="desc-subhead">3. Private Blockchain</div>
+          <ul>
+            <li><strong>Definition:</strong> A closed, restricted distributed ledger operated and governed by a <strong>single organization or authority</strong> that controls read/write permissions and node onboarding.</li>
+            <li><strong>Consensus &amp; Security:</strong> Uses lightweight crash-fault-tolerant (CFT) or authority-based consensus (e.g., RAFT, Proof of Authority) since participants belong to the same administrative domain.</li>
+            <li><strong>Characteristics:</strong> High transaction speed, strict data confidentiality, low energy consumption, but centralized governance trust.</li>
+            <li><strong>Suitable Examples:</strong> An internal corporate supply-chain audit ledger, a bank's internal inter-branch reconciliation ledger built using <strong>Hyperledger Besu</strong> or <strong>Multichain</strong>.</li>
+          </ul>
+
+          <div class="desc-subhead">4. Permissioned (Consortium / Enterprise) Blockchain</div>
+          <ul>
+            <li><strong>Definition:</strong> A blockchain where participation is restricted to a <strong>pre-approved group of identified organizations</strong> (a consortium) via cryptographic identity management (Public Key Infrastructure / Membership Service Provider).</li>
+            <li><strong>Consensus &amp; Security:</strong> Employs voting/message-passing consensus algorithms such as <strong>RAFT, Kafka, or PBFT (Practical Byzantine Fault Tolerance)</strong> without requiring costly mining.</li>
+            <li><strong>Characteristics:</strong> Balances decentralization across multiple organizations with enterprise privacy, role-based access control (RBAC), regulatory compliance, and high throughput (thousands of TPS).</li>
+            <li><strong>Suitable Examples:</strong> <strong>Hyperledger Fabric</strong> (Walmart food traceability, TradeLens), <strong>R3 Corda</strong> (inter-bank financial settlements), <strong>Quorum</strong> (J.P. Morgan enterprise network).</li>
+          </ul>
+
+          <!-- SVG Diagram for Q1 -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 1.1: Architectural Comparison of Public, Private, and Permissioned Blockchains</div>
+            <svg class="diagram-svg" viewBox="0 0 900 300" width="900" height="300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="900" height="300" rx="12" fill="#0b1120"/>
+              <!-- Panel 1: Public -->
+              <rect x="20" y="20" width="266" height="260" rx="10" fill="#111c35" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="153" y="48" fill="#38bdf8" font-size="15" font-weight="bold" text-anchor="middle">1. PUBLIC BLOCKCHAIN</text>
+              <text x="153" y="68" fill="#94a3b8" font-size="11" text-anchor="middle">Open / Permissionless (Anyone Joins)</text>
+              <!-- Mesh Nodes -->
+              <line x1="95" y1="115" x2="210" y2="115" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="95" y1="115" x2="153" y2="195" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="210" y1="115" x2="153" y2="195" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="95" y1="115" x2="85" y2="185" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="210" y1="115" x2="220" y2="185" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <circle cx="95" cy="115" r="18" fill="#0284c7" stroke="#e0f2fe" stroke-width="2"/>
+              <text x="95" y="119" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Anon</text>
+              <circle cx="210" cy="115" r="18" fill="#0284c7" stroke="#e0f2fe" stroke-width="2"/>
+              <text x="210" y="119" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Miner</text>
+              <circle cx="153" cy="195" r="18" fill="#0284c7" stroke="#e0f2fe" stroke-width="2"/>
+              <text x="153" y="199" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">User</text>
+              <circle cx="85" cy="185" r="15" fill="#0369a1" stroke="#bae6fd" stroke-width="1.5"/>
+              <circle cx="220" cy="185" r="15" fill="#0369a1" stroke="#bae6fd" stroke-width="1.5"/>
+              <text x="153" y="242" fill="#e2e8f0" font-size="11.5" font-weight="bold" text-anchor="middle">Consensus: PoW / PoS</text>
+              <text x="153" y="262" fill="#38bdf8" font-size="11" text-anchor="middle">Ex: Bitcoin, Ethereum</text>
+
+              <!-- Panel 2: Private -->
+              <rect x="317" y="20" width="266" height="260" rx="10" fill="#111c35" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="450" y="48" fill="#fbbf24" font-size="15" font-weight="bold" text-anchor="middle">2. PRIVATE BLOCKCHAIN</text>
+              <text x="450" y="68" fill="#94a3b8" font-size="11" text-anchor="middle">Single Organization Control</text>
+              <!-- Central Admin + Internal Nodes -->
+              <line x1="450" y1="145" x2="380" y2="105" stroke="#f59e0b" stroke-width="2"/>
+              <line x1="450" y1="145" x2="520" y2="105" stroke="#f59e0b" stroke-width="2"/>
+              <line x1="450" y1="145" x2="380" y2="195" stroke="#f59e0b" stroke-width="2"/>
+              <line x1="450" y1="145" x2="520" y2="195" stroke="#f59e0b" stroke-width="2"/>
+              <rect x="415" y="123" width="70" height="44" rx="8" fill="#d97706" stroke="#fef3c7" stroke-width="2"/>
+              <text x="450" y="149" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Org Admin</text>
+              <circle cx="380" cy="105" r="15" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="380" y="109" fill="#fff" font-size="9" text-anchor="middle">Dept A</text>
+              <circle cx="520" cy="105" r="15" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="520" y="109" fill="#fff" font-size="9" text-anchor="middle">Dept B</text>
+              <circle cx="380" cy="195" r="15" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="380" y="199" fill="#fff" font-size="9" text-anchor="middle">Dept C</text>
+              <circle cx="520" cy="195" r="15" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="520" y="199" fill="#fff" font-size="9" text-anchor="middle">Audit</text>
+              <text x="450" y="242" fill="#e2e8f0" font-size="11.5" font-weight="bold" text-anchor="middle">Consensus: PoA / RAFT</text>
+              <text x="450" y="262" fill="#fbbf24" font-size="11" text-anchor="middle">Ex: Internal Corporate Ledger</text>
+
+              <!-- Panel 3: Permissioned / Consortium -->
+              <rect x="614" y="20" width="266" height="260" rx="10" fill="#111c35" stroke="#10b981" stroke-width="1.5"/>
+              <text x="747" y="48" fill="#34d399" font-size="15" font-weight="bold" text-anchor="middle">3. PERMISSIONED / CONSORTIUM</text>
+              <text x="747" y="68" fill="#94a3b8" font-size="11" text-anchor="middle">Approved Identified Entities (PKI/MSP)</text>
+              <rect x="687" y="82" width="120" height="24" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="1.2"/>
+              <text x="747" y="98" fill="#a7f3d0" font-size="10" font-weight="bold" text-anchor="middle">CA / Identity Gatekeeper</text>
+              <line x1="690" y1="135" x2="804" y2="135" stroke="#10b981" stroke-width="2"/>
+              <line x1="690" y1="135" x2="747" y2="200" stroke="#10b981" stroke-width="2"/>
+              <line x1="804" y1="135" x2="747" y2="200" stroke="#10b981" stroke-width="2"/>
+              <rect x="655" y="118" width="66" height="34" rx="6" fill="#047857" stroke="#d1fae5" stroke-width="1.5"/>
+              <text x="688" y="139" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Bank A</text>
+              <rect x="773" y="118" width="66" height="34" rx="6" fill="#047857" stroke="#d1fae5" stroke-width="1.5"/>
+              <text x="806" y="139" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Bank B</text>
+              <rect x="714" y="183" width="66" height="34" rx="6" fill="#047857" stroke="#d1fae5" stroke-width="1.5"/>
+              <text x="747" y="204" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Regulator</text>
+              <text x="747" y="242" fill="#e2e8f0" font-size="11.5" font-weight="bold" text-anchor="middle">Consensus: RAFT / PBFT</text>
+              <text x="747" y="262" fill="#34d399" font-size="11" text-anchor="middle">Ex: Hyperledger Fabric, R3 Corda</text>
+            </svg>
+          </div>
+
+          <div class="comp-table-wrap">
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Public Blockchain</th>
+                  <th>Private Blockchain</th>
+                  <th>Permissioned / Consortium</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Access &amp; Participation</strong></td>
+                  <td>Open to everyone (Permissionless)</td>
+                  <td>Restricted to a single organization</td>
+                  <td>Restricted to approved consortium orgs</td>
+                </tr>
+                <tr>
+                  <td><strong>Participant Identity</strong></td>
+                  <td>Anonymous / Pseudonymous</td>
+                  <td>Known internal employees/servers</td>
+                  <td>Verified cryptographic identity (PKI/MSP)</td>
+                </tr>
+                <tr>
+                  <td><strong>Consensus Mechanism</strong></td>
+                  <td>PoW, PoS (Compute/Stake intensive)</td>
+                  <td>PoA, RAFT (Central/Crash tolerant)</td>
+                  <td>RAFT (CFT) or PBFT (BFT)</td>
+                </tr>
+                <tr>
+                  <td><strong>Throughput &amp; Speed</strong></td>
+                  <td>Low (7–30 TPS in Bitcoin/ETH L1)</td>
+                  <td>Very High (1,000–10,000+ TPS)</td>
+                  <td>High (1,000–5,000+ TPS)</td>
+                </tr>
+                <tr>
+                  <td><strong>Examples</strong></td>
+                  <td>Bitcoin, Ethereum, Litecoin</td>
+                  <td>Internal enterprise audit ledger</td>
+                  <td>Hyperledger Fabric, R3 Corda, Quorum</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Hinglish Explanation -->
+          <div class="hinglish-master-box">
+            <div class="hinglish-header">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein Samjho — Q1)</div>
+            <p>Is question mein humein teen tarah ke blockchains ka difference aur examples samjhana hai:</p>
+            <ul>
+              <li><strong>1. Public Blockchain (Sabke Liye Open):</strong> Jaise public park ya internet hota hai, waise hi Public Blockchain mein koi bhi bina permission ke jud sakta hai, transaction bhej sakta hai aur miner/validator ban sakta hai. Yahan koi किसी ko pehchanta nahi (anonymous hote hain), isliye security ke liye heavy <strong>Proof of Work (PoW)</strong> ya <strong>Proof of Stake (PoS)</strong> lagta hai. <em>Example:</em> <strong>Bitcoin</strong> aur <strong>Ethereum</strong>.</li>
+              <li><strong>2. Private Blockchain (Ek Company Ka Apna Network):</strong> Yeh ek single company ke office intranet jaisa hota hai. Sirf company ka admin decide karta hai ki kaun data dekh sakta hai aur kaun write kar sakta hai. Speed bahut fast hoti hai kyunki mining ki zaroorat nahi padti. <em>Example:</em> Ek company ka internal supply-chain ya accounting ledger.</li>
+              <li><strong>3. Permissioned / Consortium Blockchain (Approved Organizations Ka Group):</strong> Jab 4–5 alag-alag banks ya companies milkar ek shared blockchain banati hain jismein har member ka <strong>Identity Certificate (PKI/MSP)</strong> verified hota hai, usse Permissioned Blockchain kehte hain. Ismein bina permission koi bahar ka banda nahi ghus sakta, aur consensus ke liye <strong>RAFT</strong> ya <strong>PBFT</strong> use hota hai. <em>Example:</em> <strong>Hyperledger Fabric</strong> aur <strong>R3 Corda</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="desc-card" id="desc-q2">
+        <div class="q-badges">
+          <span class="badge badge-co">CO-03 • Descriptive Q.2</span>
+          <span class="badge badge-bl">Bloom's Level: Understand</span>
+          <span class="badge badge-marks">6 Marks</span>
+        </div>
+        <h3 class="desc-title">Q2. Discuss the important design challenges of permissioned blockchain networks and explain why they need to be addressed.</h3>
+        <div class="desc-body">
+          <div class="desc-subhead">1. Introduction</div>
+          <p>While permissioned blockchains eliminate expensive Proof-of-Work mining by restricting participation to known organizations, designing an enterprise-grade permissioned network introduces critical architectural challenges across identity, governance, confidentiality, consensus scalability, and interoperability.</p>
+
+          <div class="desc-subhead">2. Key Design Challenges &amp; Why They Must Be Addressed</div>
+          <ol>
+            <li><strong>Identity Management, Authentication &amp; Access Control (PKI / MSP):</strong>
+              <br/><em>Challenge:</em> Unlike public blockchains that use self-generated key pairs, permissioned networks must issue, verify, renew, and revoke digital certificates for every user, peer node, and ordering node.
+              <br/><em>Why Address It:</em> If certificate revocation or role-based access control (RBAC) fails, a compromised or revoked organization could inject unauthorized transactions or read confidential records.</li>
+            <li><strong>Data Confidentiality &amp; Selective Privacy Among Competitors:</strong>
+              <br/><em>Challenge:</em> Multiple competing enterprises (e.g., rival banks or suppliers) share the same blockchain infrastructure, but bilateral business rates or trade secrets cannot be visible to all consortium members.
+              <br/><em>Why Address It:</em> Without selective disclosure mechanisms (such as Hyperledger Fabric <em>Channels</em>, Private Data Collections, or Zero-Knowledge Proofs), businesses will refuse to adopt the network due to commercial privacy laws and GDPR compliance.</li>
+            <li><strong>Consortium Governance &amp; Policy Evolution:</strong>
+              <br/><em>Challenge:</em> Determining who has the authority to onboard new members, upgrade smart contracts (chaincode), or modify network policies without recreating a single point of centralization.
+              <br/><em>Why Address It:</em> Poor governance leads to consortium deadlocks, power imbalances, or unilateral manipulation of smart contract logic.</li>
+            <li><strong>Consensus Selection (Crash Fault vs. Byzantine Fault Tolerance) &amp; Message Overhead:</strong>
+              <br/><em>Challenge:</em> Choosing between CFT protocols (like RAFT, which tolerates crashed nodes but not malicious insiders) and BFT protocols (like PBFT, which tolerates malicious nodes but incurs $O(n^2)$ communication complexity).
+              <br/><em>Why Address It:</em> Selecting CFT in a low-trust consortium risks insider manipulation, while poorly tuned BFT degrades throughput rapidly when validator count grows beyond 20–50 nodes.</li>
+            <li><strong>Smart Contract Determinism &amp; Endorsement Validation:</strong>
+              <br/><em>Challenge:</em> Smart contracts executing across multiple nodes must produce identical state outputs (deterministic execution). Non-deterministic calls (e.g., local system timestamps, random numbers, or external API calls) cause state divergence.
+              <br/><em>Why Address It:</em> Non-determinism breaks State Machine Replication (SMR) and causes ledger forks or stalled block commits.</li>
+            <li><strong>Legacy Enterprise Integration &amp; Interoperability:</strong>
+              <br/><em>Challenge:</em> Connecting blockchain ledgers with existing ERP/core-banking databases (SAP, Oracle, SWIFT) securely without introducing centralized oracle bottlenecks.</li>
+          </ol>
+
+          <!-- SVG Diagram for Q2 -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 2.1: Core Design Challenges &amp; Architectural Solutions in Permissioned Blockchains</div>
+            <svg class="diagram-svg" viewBox="0 0 900 290" width="900" height="290" xmlns="http://www.w3.org/2000/svg">
+              <rect width="900" height="290" rx="12" fill="#0b1120"/>
+              <!-- Center Hub -->
+              <rect x="335" y="105" width="230" height="75" rx="12" fill="#1e1b4b" stroke="#818cf8" stroke-width="2.5"/>
+              <text x="450" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">PERMISSIONED BLOCKCHAIN</text>
+              <text x="450" y="158" fill="#a5b4fc" font-size="11.5" text-anchor="middle">Enterprise Design Architecture</text>
+
+              <!-- 6 Challenge Nodes -->
+              <!-- Top Left -->
+              <line x1="250" y1="60" x2="355" y2="105" stroke="#38bdf8" stroke-width="2"/>
+              <rect x="25" y="25" width="225" height="68" rx="8" fill="#111c35" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="137" y="48" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">1. Identity &amp; Access (PKI/MSP)</text>
+              <text x="137" y="66" fill="#cbd5e1" font-size="10.5" text-anchor="middle">Cert issuance, RBAC &amp; revocation</text>
+              <text x="137" y="81" fill="#94a3b8" font-size="10" text-anchor="middle">Prevents Sybil &amp; unauthorized access</text>
+
+              <!-- Bottom Left -->
+              <line x1="250" y1="225" x2="355" y2="180" stroke="#10b981" stroke-width="2"/>
+              <rect x="25" y="192" width="225" height="68" rx="8" fill="#111c35" stroke="#10b981" stroke-width="1.5"/>
+              <text x="137" y="215" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">2. Selective Confidentiality</text>
+              <text x="137" y="233" fill="#cbd5e1" font-size="10.5" text-anchor="middle">Private Channels &amp; Zero-Knowledge</text>
+              <text x="137" y="248" fill="#94a3b8" font-size="10" text-anchor="middle">Protects trade secrets between rivals</text>
+
+              <!-- Top Center -->
+              <line x1="450" y1="82" x2="450" y2="105" stroke="#f59e0b" stroke-width="2"/>
+              <rect x="337" y="14" width="226" height="68" rx="8" fill="#111c35" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="450" y="37" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">3. Consortium Governance</text>
+              <text x="450" y="55" fill="#cbd5e1" font-size="10.5" text-anchor="middle">Multi-org endorsement policies</text>
+              <text x="450" y="70" fill="#94a3b8" font-size="10" text-anchor="middle">Prevents single-entity monopoly</text>
+
+              <!-- Bottom Center -->
+              <line x1="450" y1="180" x2="450" y2="205" stroke="#ec4899" stroke-width="2"/>
+              <rect x="337" y="205" width="226" height="68" rx="8" fill="#111c35" stroke="#ec4899" stroke-width="1.5"/>
+              <text x="450" y="228" fill="#f472b6" font-size="12" font-weight="bold" text-anchor="middle">4. Consensus Trade-off</text>
+              <text x="450" y="246" fill="#cbd5e1" font-size="10.5" text-anchor="middle">CFT (RAFT) vs. BFT (PBFT O(n²))</text>
+              <text x="450" y="261" fill="#94a3b8" font-size="10" text-anchor="middle">Balances throughput vs. insider risk</text>
+
+              <!-- Top Right -->
+              <line x1="650" y1="60" x2="545" y2="105" stroke="#a855f7" stroke-width="2"/>
+              <rect x="650" y="25" width="225" height="68" rx="8" fill="#111c35" stroke="#a855f7" stroke-width="1.5"/>
+              <text x="762" y="48" fill="#c084fc" font-size="12" font-weight="bold" text-anchor="middle">5. Execution Determinism</text>
+              <text x="762" y="66" fill="#cbd5e1" font-size="10.5" text-anchor="middle">Execute-Order-Validate architecture</text>
+              <text x="762" y="81" fill="#94a3b8" font-size="10" text-anchor="middle">Eliminates state divergence across peers</text>
+
+              <!-- Bottom Right -->
+              <line x1="650" y1="225" x2="545" y2="180" stroke="#38bdf8" stroke-width="2"/>
+              <rect x="650" y="192" width="225" height="68" rx="8" fill="#111c35" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="762" y="215" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">6. Regulatory &amp; ERP Integration</text>
+              <text x="762" y="233" fill="#cbd5e1" font-size="10.5" text-anchor="middle">Auditability, GDPR &amp; legacy APIs</text>
+              <text x="762" y="248" fill="#94a3b8" font-size="10" text-anchor="middle">Ensures legal &amp; enterprise readiness</text>
+            </svg>
+          </div>
+
+          <!-- Hinglish Explanation -->
+          <div class="hinglish-master-box">
+            <div class="hinglish-header">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein Samjho — Q2)</div>
+            <p>Jab hum ek Permissioned Blockchain (jaise banks ya companies ka network) design karte hain, toh humein 6 bade challenges solve karne padte hain:</p>
+            <ul>
+              <li><strong>1. Identity &amp; Authorization (Kaun andar aa sakta hai?):</strong> Har user aur node ko digital certificate (PKI / MSP) dena padta hai. Agar kisi employee ne job chhod di ya kisi node ka key hack ho gaya, toh uska access turant revoke (cancel) hona chahiye warna unauthorized transactions ho jayenge.</li>
+              <li><strong>2. Data Privacy Between Competitors:</strong> Maan lo 4 competing suppliers ek hi blockchain par hain. Supplier A apna discount rate Supplier B ko nahi dikhana chahta. Isliye <strong>Private Channels</strong> ya <strong>Private Data Collections</strong> banana zaroori hai taaki sensitive data sirf concerned parties ko hi dikhe.</li>
+              <li><strong>3. Governance &amp; Rules:</strong> Network mein naya member add karne ya smart contract update karne ka power kisi ek company ke haath mein nahi hona chahiye, warna woh centralized ban jayega. Isliye multi-party voting/endorsement policy chahiye.</li>
+              <li><strong>4. Consensus Speed vs. Trust (CFT vs. BFT):</strong> Agar hum RAFT (CFT) use karte hain toh speed fast milti hai par woh malicious (gaddar) node ko nahi rok sakta. Agar PBFT (BFT) lagate hain toh malicious node pakda jata hai par messages badhne se ($O(n^2)$) network slow ho sakta hai.</li>
+              <li><strong>5. Deterministic Smart Contracts:</strong> Har node par smart contract run hone ke baad <strong>exact same output</strong> aana chahiye. Agar code mein `current_time()` ya `random()` daal diya toh har node ka answer alag aayega aur blockchain state bigad jayegi!</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="desc-card" id="desc-q3">
+        <div class="q-badges">
+          <span class="badge badge-co">CO-03 • Descriptive Q.3</span>
+          <span class="badge badge-bl">Bloom's Level: Understand</span>
+          <span class="badge badge-marks">6 Marks</span>
+        </div>
+        <h3 class="desc-title">Q3. Explain State Machine Replication (SMR) and discuss its role in maintaining consistency in a permissioned blockchain.</h3>
+        <div class="desc-body">
+          <div class="desc-subhead">1. Concept of State Machine Replication (SMR)</div>
+          <p><strong>State Machine Replication (SMR)</strong> is a foundational distributed computing technique for building fault-tolerant, consistent services by replicating a deterministic state machine across multiple independent server nodes (replicas). Formally, a state machine consists of:</p>
+          <ul>
+            <li>A set of <strong>States ($S$)</strong> (e.g., account balances, smart contract key-value store), starting from a well-defined initial state $S_0$ (the Genesis Block).</li>
+            <li>A set of <strong>Inputs / Commands ($I$)</strong> (e.g., signed blockchain transactions).</li>
+            <li>A <strong>Deterministic Transition Function $\delta(S_t, I) \rightarrow (S_{t+1}, O)$</strong> that takes the current state and an input command, and deterministically computes the next state $S_{t+1}$ and output $O$.</li>
+          </ul>
+
+          <div class="desc-subhead">2. Fundamental Requirements of SMR</div>
+          <p>For all non-faulty nodes in a distributed system to hold the exact same state at every step, SMR enforces three strict rules:</p>
+          <ol>
+            <li><strong>Identical Initial State ($S_0$):</strong> Every replica starts from the exact same genesis configuration.</li>
+            <li><strong>Total Order Broadcast (Consensus on Ordering):</strong> All replicas must receive and process incoming client transactions in the <strong>exact same sequential order</strong> ($T_1, T_2, T_3, \dots$).</li>
+            <li><strong>Deterministic Execution:</strong> Given the same current state and the same transaction $T_i$, the transition function $\delta$ must produce the exact same new state on every replica without side effects.</li>
+          </ol>
+
+          <div class="desc-subhead">3. Role of SMR in Maintaining Consistency in a Permissioned Blockchain</div>
+          <ul>
+            <li><strong>Preventing Ledger Forks &amp; Double Spending:</strong> If Replica 1 executes $[T_1: \text{Alice pays Bob}, T_2: \text{Alice pays Charlie}]$ while Replica 2 executes $[T_2, T_1]$, they would disagree on who gets Alice's funds. The SMR Ordering Service (using RAFT or PBFT) serializes transactions into an immutable sequence of blocks so every node executes the exact same order.</li>
+            <li><strong>High Availability &amp; Fault Tolerance:</strong> Even if up to $f$ replicas crash (in CFT, where $N \ge 2f+1$) or act maliciously (in BFT, where $N \ge 3f+1$), the remaining honest replicas maintain an identical, uninterrupted ledger state.</li>
+            <li><strong>Order-Execute vs. Execute-Order-Validate (Hyperledger Fabric):</strong> Traditional SMR blockchains follow <em>Order-Execute</em> (order transactions first via consensus, then execute deterministically on all nodes). Modern permissioned blockchains like Hyperledger Fabric optimize SMR using <em>Execute-Order-Validate</em> to detect non-deterministic results before ordering commits to the state database.</li>
+          </ul>
+
+          <!-- SVG Diagram for Q3 -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 3.1: State Machine Replication (SMR) Architecture in a Permissioned Blockchain</div>
+            <svg class="diagram-svg" viewBox="0 0 900 280" width="900" height="280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="900" height="280" rx="12" fill="#0b1120"/>
+              <!-- Clients -->
+              <rect x="25" y="45" width="115" height="45" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="82" y="72" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">Client A (Tx1)</text>
+              <rect x="25" y="118" width="115" height="45" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="82" y="145" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">Client B (Tx2)</text>
+              <rect x="25" y="190" width="115" height="45" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="82" y="217" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">Client C (Tx3)</text>
+
+              <!-- Arrows to Consensus -->
+              <line x1="140" y1="67" x2="215" y2="125" stroke="#38bdf8" stroke-width="2"/>
+              <line x1="140" y1="140" x2="215" y2="140" stroke="#38bdf8" stroke-width="2"/>
+              <line x1="140" y1="212" x2="215" y2="155" stroke="#38bdf8" stroke-width="2"/>
+
+              <!-- Consensus / Total Order Module -->
+              <rect x="215" y="80" width="185" height="120" rx="12" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="307" y="115" fill="#c084fc" font-size="13" font-weight="bold" text-anchor="middle">CONSENSUS MODULE</text>
+              <text x="307" y="135" fill="#e2e8f0" font-size="11" text-anchor="middle">(RAFT / PBFT Ordering)</text>
+              <rect x="235" y="150" width="145" height="34" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1.2"/>
+              <text x="307" y="171" fill="#facc15" font-size="11.5" font-weight="bold" text-anchor="middle">Log: [Tx1 → Tx2 → Tx3]</text>
+
+              <!-- Arrows to Replicas -->
+              <line x1="400" y1="120" x2="485" y2="62" stroke="#a855f7" stroke-width="2"/>
+              <line x1="400" y1="140" x2="485" y2="140" stroke="#a855f7" stroke-width="2"/>
+              <line x1="400" y1="160" x2="485" y2="218" stroke="#a855f7" stroke-width="2"/>
+
+              <!-- Replicas -->
+              <rect x="485" y="32" width="235" height="60" rx="9" fill="#0f2922" stroke="#10b981" stroke-width="1.8"/>
+              <text x="602" y="56" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Replica Node 1 (Deterministic SM)</text>
+              <text x="602" y="76" fill="#d1fae5" font-size="11" text-anchor="middle">State: S0 → S1 → S2 → S3</text>
+
+              <rect x="485" y="110" width="235" height="60" rx="9" fill="#0f2922" stroke="#10b981" stroke-width="1.8"/>
+              <text x="602" y="134" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Replica Node 2 (Deterministic SM)</text>
+              <text x="602" y="154" fill="#d1fae5" font-size="11" text-anchor="middle">State: S0 → S1 → S2 → S3</text>
+
+              <rect x="485" y="188" width="235" height="60" rx="9" fill="#0f2922" stroke="#10b981" stroke-width="1.8"/>
+              <text x="602" y="212" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Replica Node 3 (Deterministic SM)</text>
+              <text x="602" y="232" fill="#d1fae5" font-size="11" text-anchor="middle">State: S0 → S1 → S2 → S3</text>
+
+              <!-- Final Consistent State Box -->
+              <line x1="720" y1="62" x2="765" y2="120" stroke="#10b981" stroke-width="2"/>
+              <line x1="720" y1="140" x2="765" y2="140" stroke="#10b981" stroke-width="2"/>
+              <line x1="720" y1="218" x2="765" y2="160" stroke="#10b981" stroke-width="2"/>
+
+              <rect x="765" y="95" width="115" height="90" rx="10" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+              <text x="822" y="130" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">IDENTICAL</text>
+              <text x="822" y="148" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">LEDGER</text>
+              <text x="822" y="166" fill="#a7f3d0" font-size="11" text-anchor="middle">State = S3</text>
+            </svg>
+          </div>
+
+          <!-- Hinglish Explanation -->
+          <div class="hinglish-master-box">
+            <div class="hinglish-header">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein Samjho — Q3: State Machine Replication)</div>
+            <p><strong>State Machine Replication (SMR)</strong> ka basic funda bahut simple hai:</p>
+            <ul>
+              <li><strong>Core Idea:</strong> Maan lo aapke paas 5 computers (nodes) hain aur aap chahte ho ki paancho computers par hamesha <strong>100% same ledger balance (State)</strong> rahe.</li>
+              <li><strong>SMR ke 3 Golden Rules:</strong>
+                <br/>1. <strong>Same Starting State ($S_0$):</strong> Sabhi nodes bilkul same Genesis block se start karein.
+                <br/>2. <strong>Same Ordered Commands:</strong> Consensus algorithm (jaise RAFT ya PBFT) saare incoming transactions ko ek <strong>fixed line (Total Order)</strong> mein lagata hai — jaise pehle $Tx_1$, phir $Tx_2$, phir $Tx_3$.
+                <br/>3. <strong>Deterministic Execution:</strong> Har node us fixed sequence ko step-by-step run karta hai. Kyunki logic deterministic hai (same input par hamesha same output aata hai), isliye har node ka final state ($S_3$) bilkul match karega!</li>
+              <li><strong>Permissioned Blockchain mein Role:</strong> SMR ensure karta hai ki agar 1–2 servers crash bhi ho jayein, tab bhi network bina ruke kaam kare aur kisi bhi दो nodes ke beech data mismatch (fork ya double spending) na ho.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ★ Q4 FEATURED SPOTLIGHT ★ -->
+      <article class="desc-card q4-featured" id="desc-q4">
+        <div class="q-badges">
+          <span class="badge badge-co" style="background:#7c3aed; color:#fff; border-color:#c084fc;">★ FEATURED Q.4 • CO-03 Descriptive</span>
+          <span class="badge badge-bl">Bloom's Level: Analyze</span>
+          <span class="badge badge-marks">6 Marks • Detailed Answer + 2 Diagrams + Hinglish</span>
+        </div>
+        <h3 class="desc-title">Q4. Describe the working of the RAFT consensus algorithm and compare its approach with Paxos.</h3>
+        <div class="desc-body">
+          <div class="desc-subhead">1. Introduction to RAFT Consensus Algorithm</div>
+          <p><strong>RAFT</strong> (Reliable, Replicated, Redundant, And Fault-Tolerant) is a <strong>Crash Fault Tolerant (CFT)</strong> consensus algorithm designed by Diego Ongaro and John Ousterhout (Stanford University, 2014) to manage a replicated log across a cluster of distributed nodes. RAFT achieves the exact same safety and fault-tolerance guarantees as Multi-Paxos (tolerating up to $f$ crash failures in a cluster of $2f + 1$ nodes) but was explicitly architected for <strong>understandability and clean problem decomposition</strong>. It is the standard ordering service consensus engine in enterprise permissioned blockchains such as <strong>Hyperledger Fabric</strong> and <strong>Quorum</strong>.</p>
+
+          <div class="desc-subhead">2. Server States and Logical Time ("Terms") in RAFT</div>
+          <p>At any given moment, every server node in a RAFT cluster operates in one of three states:</p>
+          <ul>
+            <li><strong>Follower:</strong> Completely passive node; responds only to incoming RPC requests from the Leader or Candidates. All nodes boot up as Followers.</li>
+            <li><strong>Candidate:</strong> An active state entered when a Follower's election timer expires without hearing from a Leader; it campaigns to become the new Leader.</li>
+            <li><strong>Leader:</strong> A single elected coordinator per term that accepts all client transactions, appends them to its log, replicates them to Followers, and sends periodic heartbeats.</li>
+          </ul>
+          <p><strong>Terms (Logical Clock):</strong> RAFT divides time into arbitrary-length epochs called <strong>Terms</strong>, numbered with consecutive integers ($1, 2, 3, \dots$). Each term begins with an election. If a node discovers a peer with a higher term number, it immediately updates its term and reverts to Follower state.</p>
+
+          <!-- DIAGRAM 1 FOR Q4: RAFT State Transition & Term Diagram -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 4.1: RAFT Node State Transition Diagram &amp; Logical Term Timeline</div>
+            <svg class="diagram-svg" viewBox="0 0 900 310" width="900" height="310" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#38bdf8" />
+                </marker>
+                <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" />
+                </marker>
+                <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+                </marker>
+                <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#c084fc" />
+                </marker>
+              </defs>
+              <rect width="900" height="310" rx="12" fill="#0b1120"/>
+
+              <!-- Start Arrow -->
+              <line x1="35" y1="130" x2="115" y2="130" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+              <text x="75" y="118" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Starts Up</text>
+
+              <!-- State 1: Follower -->
+              <rect x="120" y="90" width="165" height="80" rx="12" fill="#0f2942" stroke="#38bdf8" stroke-width="2.5"/>
+              <text x="202" y="125" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">FOLLOWER</text>
+              <text x="202" y="147" fill="#cbd5e1" font-size="11" text-anchor="middle">Passive • Awaits Heartbeat</text>
+
+              <!-- Follower -> Candidate -->
+              <path d="M 285 112 L 415 112" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrowAmber)"/>
+              <text x="350" y="90" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Election Timeout</text>
+              <text x="350" y="104" fill="#94a3b8" font-size="10" text-anchor="middle">(150–300ms, no heartbeat)</text>
+
+              <!-- State 2: Candidate -->
+              <rect x="420" y="90" width="165" height="80" rx="12" fill="#3b2106" stroke="#f59e0b" stroke-width="2.5"/>
+              <text x="502" y="125" fill="#fbbf24" font-size="16" font-weight="bold" text-anchor="middle">CANDIDATE</text>
+              <text x="502" y="147" fill="#fde68a" font-size="11" text-anchor="middle">Term++ • RequestVote RPC</text>
+
+              <!-- Candidate Loop (Split Vote) -->
+              <path d="M 465 90 C 465 35, 540 35, 540 90" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrowAmber)"/>
+              <text x="502" y="34" fill="#fbbf24" font-size="10.5" font-weight="bold" text-anchor="middle">Timeout (Split Vote) → New Election</text>
+
+              <!-- Candidate -> Leader -->
+              <path d="M 585 130 L 705 130" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+              <text x="645" y="106" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Wins Majority</text>
+              <text x="645" y="120" fill="#94a3b8" font-size="10" text-anchor="middle">Votes (≥ N/2 + 1)</text>
+
+              <!-- State 3: Leader -->
+              <rect x="710" y="90" width="160" height="80" rx="12" fill="#063e2e" stroke="#10b981" stroke-width="2.5"/>
+              <text x="790" y="125" fill="#34d399" font-size="16" font-weight="bold" text-anchor="middle">LEADER</text>
+              <text x="790" y="147" fill="#d1fae5" font-size="11" text-anchor="middle">AppendEntries &amp; Heartbeats</text>
+
+              <!-- Candidate -> Follower (Discovers current leader or higher term) -->
+              <path d="M 420 150 L 290 150" stroke="#c084fc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+              <text x="355" y="168" fill="#d8b4fe" font-size="10.5" text-anchor="middle">Discovers Leader / Higher Term</text>
+
+              <!-- Leader -> Follower (Discovers higher term) -->
+              <path d="M 790 170 C 790 245, 202 245, 202 175" stroke="#c084fc" stroke-width="2.2" stroke-dasharray="5,4" fill="none" marker-end="url(#arrowPurple)"/>
+              <text x="500" y="238" fill="#d8b4fe" font-size="11.5" font-weight="bold" text-anchor="middle">Discovers Server with Higher Term Number → Steps Down to Follower</text>
+
+              <!-- Bottom Term Timeline Bar -->
+              <rect x="120" y="262" width="210" height="30" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+              <text x="225" y="281" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">Term 1 (Normal Leader S1)</text>
+              <rect x="335" y="262" width="165" height="30" rx="5" fill="#3b2106" stroke="#f59e0b" stroke-width="1.2"/>
+              <text x="417" y="281" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">Term 2 (Split Vote)</text>
+              <rect x="505" y="262" width="365" height="30" rx="5" fill="#063e2e" stroke="#10b981" stroke-width="1.2"/>
+              <text x="687" y="281" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Term 3 (Leader S2 Elected → Log Replication)</text>
+            </svg>
+          </div>
+
+          <div class="desc-subhead">3. Step-by-Step Working of RAFT Consensus</div>
+          <p>RAFT decomposes the consensus problem into three distinct, well-defined sub-problems:</p>
+
+          <p><strong>Phase A: Leader Election</strong></p>
+          <ol>
+            <li><strong>Heartbeat Mechanism:</strong> A healthy Leader sends periodic empty <code>AppendEntries</code> RPCs (heartbeats) to all Followers to maintain authority and reset their election timers.</li>
+            <li><strong>Randomized Election Timeout (150 ms – 300 ms):</strong> If a Follower receives no heartbeat within its randomized timeout window, it assumes the Leader has crashed.</li>
+            <li><strong>Candidacy &amp; Voting:</strong> The Follower increments its <code>currentTerm</code>, transitions to <strong>Candidate</strong>, votes for itself, and broadcasts <code>RequestVote</code> RPCs in parallel to all peers.</li>
+            <li><strong>Quorum Decision:</strong> Each server votes for at most one candidate per term (on a first-come, first-served basis, provided the candidate's log is at least as up-to-date as its own). Once a Candidate receives votes from a strict majority ($\lfloor N/2 \rfloor + 1$, e.g., 3 out of 5 nodes), it becomes the <strong>Leader</strong> and immediately sends heartbeats. If a split vote occurs, randomized timeouts ensure one candidate restarts election faster in the next term.</li>
+          </ol>
+
+          <p><strong>Phase B: Log Replication (Normal Operation)</strong></p>
+          <ol>
+            <li><strong>Client Proposal:</strong> Clients send all write commands (transactions) to the elected <strong>Leader</strong> (if sent to a Follower, the Follower redirects the client to the Leader).</li>
+            <li><strong>Local Log Append:</strong> The Leader appends the command as a new uncommitted entry in its local log, tagged with its <code>Index</code> and <code>Term</code>.</li>
+            <li><strong>AppendEntries Broadcast:</strong> The Leader sends <code>AppendEntries</code> RPCs containing the new log entry (plus the previous entry's index and term for consistency checking) to all Followers in parallel.</li>
+            <li><strong>Majority Acknowledgment &amp; Commit:</strong> Each Follower verifies the previous log index/term match, appends the entry to its local log, and replies <code>Success ACK</code>. Once the Leader receives ACKs from a <strong>majority quorum ($\ge \lfloor N/2 \rfloor + 1$)</strong>, the Leader marks the entry as <strong>Committed</strong>, executes it on its local state machine, and returns the result to the client.</li>
+            <li><strong>Follower Execution:</strong> In the next heartbeat/<code>AppendEntries</code> RPC, the Leader shares its updated <code>leaderCommit</code> index, prompting all Followers to apply the committed entry to their own state machines.</li>
+          </ol>
+
+          <p><strong>Phase C: Safety &amp; Log Consistency Guarantees</strong></p>
+          <ul>
+            <li><strong>Leader Completeness Property:</strong> If a log entry is committed in a given term, that entry is guaranteed to be present in the logs of the Leaders for all higher-numbered terms. Voters reject any <code>RequestVote</code> from a candidate whose last log entry has an older term or shorter index than their own.</li>
+            <li><strong>Log Matching Property:</strong> If two logs contain an entry with the same index and term, then the logs are identical in all preceding entries up through that index.</li>
+          </ul>
+
+          <!-- DIAGRAM 2 FOR Q4: RAFT Log Replication Sequence Diagram -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 4.2: RAFT Log Replication Sequence &amp; Quorum Commit Architecture</div>
+            <svg class="diagram-svg" viewBox="0 0 900 320" width="900" height="320" xmlns="http://www.w3.org/2000/svg">
+              <rect width="900" height="320" rx="12" fill="#0b1120"/>
+
+              <!-- Lifeline Headers -->
+              <rect x="35" y="20" width="110" height="40" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8"/>
+              <text x="90" y="45" fill="#38bdf8" font-size="13" font-weight="bold" text-anchor="middle">CLIENT</text>
+
+              <rect x="235" y="20" width="150" height="40" rx="8" fill="#063e2e" stroke="#10b981" stroke-width="2"/>
+              <text x="310" y="45" fill="#34d399" font-size="13" font-weight="bold" text-anchor="middle">LEADER (Node 1)</text>
+
+              <rect x="495" y="20" width="150" height="40" rx="8" fill="#0f2942" stroke="#38bdf8" stroke-width="1.8"/>
+              <text x="570" y="45" fill="#bae6fd" font-size="13" font-weight="bold" text-anchor="middle">FOLLOWER A (Node 2)</text>
+
+              <rect x="710" y="20" width="150" height="40" rx="8" fill="#0f2942" stroke="#38bdf8" stroke-width="1.8"/>
+              <text x="785" y="45" fill="#bae6fd" font-size="13" font-weight="bold" text-anchor="middle">FOLLOWER B (Node 3)</text>
+
+              <!-- Vertical Lifelines -->
+              <line x1="90" y1="60" x2="90" y2="295" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+              <line x1="310" y1="60" x2="310" y2="295" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+              <line x1="570" y1="60" x2="570" y2="295" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4"/>
+              <line x1="785" y1="60" x2="785" y2="295" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+              <!-- Step 1: Client sends Tx -->
+              <line x1="90" y1="88" x2="302" y2="88" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+              <text x="195" y="80" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">1. Submit Command (x = 5)</text>
+
+              <!-- Step 2: Leader Appends to Local Log -->
+              <rect x="245" y="98" width="130" height="26" rx="5" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="310" y="115" fill="#fbbf24" font-size="10.5" font-weight="bold" text-anchor="middle">2. Append Local Log</text>
+
+              <!-- Step 3: AppendEntries RPC -->
+              <line x1="310" y1="142" x2="562" y2="155" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <line x1="310" y1="142" x2="777" y2="165" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowAmber)"/>
+              <text x="445" y="138" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">3. AppendEntries RPC (Index, Term, Tx)</text>
+
+              <!-- Step 4: Followers append & ACK -->
+              <line x1="570" y1="185" x2="318" y2="202" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+              <line x1="785" y1="195" x2="318" y2="212" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+              <text x="455" y="190" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">4. Success ACK (Quorum Majority Reached!)</text>
+
+              <!-- Step 5: Leader Commits & Applies -->
+              <rect x="235" y="220" width="150" height="28" rx="5" fill="#064e3b" stroke="#34d399" stroke-width="1.8"/>
+              <text x="310" y="238" fill="#fff" font-size="10.5" font-weight="bold" text-anchor="middle">5. COMMIT &amp; Apply State</text>
+
+              <!-- Step 6: Reply to Client & Notify Followers -->
+              <line x1="310" y1="262" x2="98" y2="262" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+              <text x="195" y="254" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">6a. Return Execution Result</text>
+
+              <line x1="310" y1="272" x2="562" y2="282" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowPurple)"/>
+              <line x1="310" y1="272" x2="777" y2="288" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowPurple)"/>
+              <text x="530" y="270" fill="#d8b4fe" font-size="11" font-weight="bold" text-anchor="middle">6b. Next Heartbeat (leaderCommit) → Followers Apply State</text>
+            </svg>
+          </div>
+
+          <div class="desc-subhead">4. Detailed Comparison: RAFT vs. Paxos</div>
+          <p>Both RAFT and Paxos (specifically Multi-Paxos, introduced by Leslie Lamport) solve Crash Fault Tolerant (CFT) consensus under partial synchrony using a majority quorum ($\lfloor N/2 \rfloor + 1$). However, their architectural approaches differ fundamentally in leadership structure, log ordering, and engineering complexity:</p>
+
+          <div class="comp-table-wrap">
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Comparison Parameter</th>
+                  <th>RAFT Consensus Algorithm</th>
+                  <th>Paxos (Basic / Multi-Paxos)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Primary Design Goal</strong></td>
+                  <td>Designed specifically for <strong>understandability</strong>, modular decomposition (Election, Replication, Safety), and ease of implementation.</td>
+                  <td>Designed for theoretical minimalism and generality in asynchronous distributed consensus, making it notoriously difficult to implement.</td>
+                </tr>
+                <tr>
+                  <td><strong>Leadership Model</strong></td>
+                  <td><strong>Strong Leadership:</strong> A single Leader is mandatory for normal operation; all log entries flow strictly in one direction from Leader to Followers.</td>
+                  <td><strong>Leaderless / Weak Leadership:</strong> Basic Paxos allows any Proposer to propose values concurrently (causing dueling proposers); Multi-Paxos adds an optional leader optimization.</td>
+                </tr>
+                <tr>
+                  <td><strong>Log Ordering &amp; Gaps</strong></td>
+                  <td><strong>Strict Sequential Log:</strong> Log entries are appended strictly in order without gaps. Followers cannot accept entry $k+1$ unless entry $k$ matches.</td>
+                  <td><strong>Out-of-Order Commit Allowed:</strong> Log slots can be agreed upon independently out of order, leaving temporary gaps that must be filled before state execution.</td>
+                </tr>
+                <tr>
+                  <td><strong>Leader Election Rule</strong></td>
+                  <td>Only a node with the <strong>most up-to-date log</strong> can be elected Leader. The new Leader never needs to copy missing committed entries from Followers.</td>
+                  <td>Any node can be elected Leader; the new Leader must then run a recovery phase to learn previously agreed values from a quorum of Acceptors and update its log.</td>
+                </tr>
+                <tr>
+                  <td><strong>Node Roles</strong></td>
+                  <td>3 mutually exclusive dynamic states: <strong>Leader, Follower, Candidate</strong>.</td>
+                  <td>3 logical roles (often co-located): <strong>Proposer, Acceptor, Learner</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fault Tolerance &amp; Quorum</strong></td>
+                  <td>Crash Fault Tolerant (CFT); tolerates $f$ crashes with $N = 2f + 1$ nodes.</td>
+                  <td>Crash Fault Tolerant (CFT); tolerates $f$ crashes with $N = 2f + 1$ nodes.</td>
+                </tr>
+                <tr>
+                  <td><strong>Blockchain Adoption</strong></td>
+                  <td>Widely used in <strong>Hyperledger Fabric (v1.4.1+ &amp; v2.x)</strong>, ConsenSys Quorum, etcd, and Consul.</td>
+                  <td>Used in Google Chubby, Spanner, and Apache ZooKeeper (ZAB variant); rarely used directly in blockchains.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Hinglish Explanation for Q4 -->
+          <div class="hinglish-master-box">
+            <div class="hinglish-header">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein Samjho — ★ Q4: RAFT Working &amp; Paxos Comparison)</div>
+            <p><strong>1. RAFT Kya Hai aur Kyun Banaya Gaya?</strong><br/>
+            Distributed systems aur Permissioned Blockchains (jaise Hyperledger Fabric) mein saare servers ke paas same transaction log rakhne ke liye pehle <strong>Paxos</strong> algorithm use hota tha, lekin Paxos samajhne aur code karne mein bahut hi complex tha. Isliye 2014 mein <strong>RAFT</strong> banaya gaya jo bilkul Paxos jaisa hi <strong>Crash Fault Tolerant (CFT)</strong> hai (yani $2f+1$ servers mein se agar $f$ servers band/crash bhi ho jayein toh system chalta rehta hai), par samajhne mein bahut easy hai!</p>
+
+            <p><strong>2. RAFT ke 3 Server States aur "Term":</strong></p>
+            <ul>
+              <li><strong>Follower:</strong> Shuruat mein saare nodes <em>Follower</em> hote hain. Yeh chupchap Leader ke instructions aur Heartbeat messages sunte hain.</li>
+              <li><strong>Candidate:</strong> Agar kisi Follower ko <strong>150ms–300ms (Election Timeout)</strong> tak Leader ka heartbeat message nahi milta, toh woh samajhta hai ki Leader crash ho gaya! Woh apna <strong>Term number</strong> (+1) badhata hai, <em>Candidate</em> ban jata hai aur baaki nodes se vote mangta hai (<code>RequestVote RPC</code>).</li>
+              <li><strong>Leader:</strong> Jis Candidate ko <strong>Majority Votes ($\lfloor N/2 \rfloor + 1$, jaise 5 mein se 3 votes)</strong> mil jate hain, woh <em>Leader</em> ban jata hai!</li>
+            </ul>
+
+            <p><strong>3. RAFT Kaise Kaam Karta Hai (Log Replication Steps):</strong></p>
+            <ul>
+              <li><strong>Step 1:</strong> Client apna transaction (jaise $x=5$) seedha <strong>Leader</strong> ko bhejta hai.</li>
+              <li><strong>Step 2:</strong> Leader us transaction ko pehle apne local log mein likhta hai (abhi commit nahi hua).</li>
+              <li><strong>Step 3:</strong> Leader <code>AppendEntries RPC</code> ke zariye woh entry saare <strong>Followers</strong> ko bhejta hai.</li>
+              <li><strong>Step 4:</strong> Followers check karte hain ki pichla log match kar raha hai ya nahi, phir apne log mein append karke Leader ko <strong>ACK (Yes)</strong> bhejte hain.</li>
+              <li><strong>Step 5:</strong> Jaise hi Leader ko <strong>Majority Followers</strong> ka ACK mil jata hai, Leader us transaction ko <strong>COMMIT</strong> kar deta hai aur Client ko "Success" bol deta hai! Agle heartbeat mein Followers bhi usse commit kar lete hain.</li>
+            </ul>
+
+            <p><strong>4. RAFT vs. Paxos Mein Main Difference Kya Hai?</strong></p>
+            <ul>
+              <li><strong>Strong Leader vs. Multiple Proposers:</strong> RAFT mein ek time par <strong>sirf ek Strong Leader</strong> hota hai aur data hamesha <em>Leader se Follower</em> ki taraf jata hai. Basic Paxos mein koi bhi Proposer kabhi bhi value propose kar sakta hai jisse "dueling proposers" (takraav) ho jata hai.</li>
+              <li><strong>No Gaps in Log:</strong> RAFT mein log entries 1, 2, 3, 4 strictly line se lagti hain — beech mein koi khali jagah (gap) allowed nahi hai. Paxos mein slot 5 pehle decide ho sakta hai jabki slot 4 abhi khali ho!</li>
+              <li><strong>Up-to-Date Leader Election:</strong> RAFT mein vote sirf ussi Candidate ko milta hai jiska log <strong>sabse updated</strong> ho. Paxos mein koi bhi node leader ban sakta hai aur baad mein usse baaki nodes se purani entries maang kar apna log bharna padta hai.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="desc-card" id="desc-q5">
+        <div class="q-badges">
+          <span class="badge badge-co">CO-03 • Descriptive Q.5</span>
+          <span class="badge badge-bl">Bloom's Level: Analyze</span>
+          <span class="badge badge-marks">6 Marks</span>
+        </div>
+        <h3 class="desc-title">Q5. Analyze Byzantine faults in blockchain consensus and evaluate how BFT mechanisms ensure reliable agreement among distributed nodes.</h3>
+        <div class="desc-body">
+          <div class="desc-subhead">1. Analysis of Byzantine Faults &amp; The Byzantine Generals Problem</div>
+          <p>Formulated by Leslie Lamport, Robert Shostak, and Marshall Pease (1982), the <strong>Byzantine Generals Problem</strong> models the challenge of reaching unanimous agreement among distributed nodes over an unreliable network when some participants may be traitors (malicious or arbitrary faulty). Unlike simple <strong>Crash Faults</strong> (where a node cleanly stops responding), a <strong>Byzantine Fault</strong> encompasses arbitrary, adversarial behavior:</p>
+          <ul>
+            <li><strong>Equivocation (Split-Brain Messaging):</strong> Sending conflicting messages to different peers (e.g., telling Node A "Commit Block X" while telling Node B "Commit Block Y").</li>
+            <li><strong>Selective Silence / Censorship:</strong> Refusing to relay messages or deliberately delaying votes to stall consensus.</li>
+            <li><strong>Collusion &amp; Fabrication:</strong> Multiple compromised nodes coordinating to forge false state votes or double-spend transactions.</li>
+          </ul>
+
+          <div class="desc-subhead">2. Mathematical Bound: The $N \ge 3f + 1$ Requirement</div>
+          <p>To tolerate up to $f$ Byzantine (malicious) nodes, a distributed consensus system requires a minimum total of <strong>$N = 3f + 1$ nodes</strong> (meaning fewer than one-third of nodes can be faulty: $f < N/3$):</p>
+          <ul>
+            <li><strong>Why 3 Nodes ($N=3, f=1$) Fails:</strong> If Commander $C$ instructs Lieutenant $L_1$ to "Attack" and $L_2$ too, but $L_2$ is a traitor who tells $L_1$ "The Commander said Retreat," $L_1$ cannot distinguish whether $C$ is a traitor sending conflicting orders or $L_2$ is lying.</li>
+            <li><strong>Why $3f+1$ Works (Quorum Intersection):</strong> In an asynchronous/partially synchronous system where up to $f$ nodes may be silent (dropped/delayed) and another $f$ nodes may return malicious lies, a node can only wait for $N - f$ responses. For the honest responses within those $N - f$ replies to strictly outnumber the $f$ malicious replies, we need $(N - f) - f > f \implies N \ge 3f + 1$. Furthermore, any two quorums of size $2f + 1$ overlap in at least $(2f+1) + (2f+1) - (3f+1) = f + 1$ nodes, guaranteeing at least <strong>one honest node</strong> in the intersection to prevent conflicting commits.</li>
+          </ul>
+
+          <!-- SVG Diagram for Q5: PBFT 3-Phase Protocol & 3f+1 Bound -->
+          <div class="diagram-wrapper">
+            <div class="diagram-caption">Figure 5.1: Practical Byzantine Fault Tolerance (PBFT) 3-Phase Consensus Protocol ($N=4, f=1$)</div>
+            <svg class="diagram-svg" viewBox="0 0 900 300" width="900" height="300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="900" height="300" rx="12" fill="#0b1120"/>
+
+              <!-- Phase Headers -->
+              <rect x="155" y="18" width="160" height="30" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+              <text x="235" y="38" fill="#38bdf8" font-size="11.5" font-weight="bold" text-anchor="middle">1. PRE-PREPARE</text>
+
+              <rect x="345" y="18" width="180" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+              <text x="435" y="38" fill="#fbbf24" font-size="11.5" font-weight="bold" text-anchor="middle">2. PREPARE (2f Votes)</text>
+
+              <rect x="555" y="18" width="180" height="30" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+              <text x="645" y="38" fill="#34d399" font-size="11.5" font-weight="bold" text-anchor="middle">3. COMMIT (2f+1 Votes)</text>
+
+              <!-- Horizontal Node Lines -->
+              <!-- Client -->
+              <text x="25" y="75" fill="#38bdf8" font-size="12" font-weight="bold">Client C</text>
+              <line x1="115" y1="70" x2="860" y2="70" stroke="#334155" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+              <!-- Primary R0 -->
+              <text x="25" y="125" fill="#34d399" font-size="12" font-weight="bold">Primary R0</text>
+              <line x1="115" y1="120" x2="860" y2="120" stroke="#10b981" stroke-width="1.8"/>
+
+              <!-- Replica R1 -->
+              <text x="25" y="175" fill="#e2e8f0" font-size="12" font-weight="bold">Replica R1</text>
+              <line x1="115" y1="170" x2="860" y2="170" stroke="#64748b" stroke-width="1.5"/>
+
+              <!-- Replica R2 -->
+              <text x="25" y="225" fill="#e2e8f0" font-size="12" font-weight="bold">Replica R2</text>
+              <line x1="115" y1="220" x2="860" y2="220" stroke="#64748b" stroke-width="1.5"/>
+
+              <!-- Replica R3 (Byzantine/Faulty) -->
+              <text x="25" y="272" fill="#f43f5e" font-size="12" font-weight="bold">Replica R3 (Faulty)</text>
+              <line x1="115" y1="268" x2="860" y2="268" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+              <!-- Request -->
+              <line x1="125" y1="70" x2="165" y2="120" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+              <text x="128" y="98" fill="#38bdf8" font-size="10" font-weight="bold">Req</text>
+
+              <!-- Pre-Prepare Arrows (R0 -> R1, R2, R3) -->
+              <line x1="175" y1="120" x2="295" y2="170" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+              <line x1="175" y1="120" x2="295" y2="220" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+              <line x1="175" y1="120" x2="295" y2="268" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+              <!-- Prepare All-to-All Broadcast (R1, R2 -> R0, R1, R2) -->
+              <line x1="355" y1="170" x2="505" y2="120" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+              <line x1="355" y1="170" x2="505" y2="220" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+              <line x1="355" y1="220" x2="505" y2="120" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+              <line x1="355" y1="220" x2="505" y2="170" stroke="#f59e0b" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+
+              <!-- Commit All-to-All Broadcast -->
+              <line x1="565" y1="120" x2="715" y2="170" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+              <line x1="565" y1="120" x2="715" y2="220" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+              <line x1="565" y1="170" x2="715" y2="120" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+              <line x1="565" y1="170" x2="715" y2="220" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+              <line x1="565" y1="220" x2="715" y2="120" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+              <line x1="565" y1="220" x2="715" y2="170" stroke="#10b981" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+
+              <!-- Reply to Client -->
+              <line x1="745" y1="120" x2="825" y2="70" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowPurple)"/>
+              <line x1="745" y1="170" x2="825" y2="70" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowPurple)"/>
+              <line x1="745" y1="220" x2="825" y2="70" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowPurple)"/>
+              <text x="820" y="55" fill="#d8b4fe" font-size="11" font-weight="bold" text-anchor="middle">Reply (f+1 Match)</text>
+            </svg>
+          </div>
+
+          <div class="desc-subhead">3. How BFT Mechanisms (PBFT) Ensure Reliable Agreement</div>
+          <p><strong>Practical Byzantine Fault Tolerance (PBFT)</strong> (Castro &amp; Liskov, 1999) achieves deterministic finality using a 3-phase commit protocol with cryptographic message authentication (MACs/Digital Signatures):</p>
+          <ol>
+            <li><strong>Phase 1 — Pre-Prepare:</strong> The Primary (Leader) in current view $v$ assigns a monotonically increasing sequence number $n$ to the client request $m$ and broadcasts $\langle \text{PRE-PREPARE}, v, n, d(m) \rangle$ to all backup replicas.</li>
+            <li><strong>Phase 2 — Prepare (Prevents Equivocation Within a View):</strong> Each backup verifies the signature, view $v$, and that no conflicting digest was assigned to sequence $n$, then broadcasts $\langle \text{PREPARE}, v, n, d(m), i \rangle$ to all peers. Once a node collects <strong>$2f$ matching Prepare messages</strong> from other peers (plus the Pre-Prepare = $2f+1$ total), it enters the <em>Prepared</em> state. This proves a quorum agrees on sequence $n$ within view $v$.</li>
+            <li><strong>Phase 3 — Commit (Guarantees Safety Across View Changes):</strong> Each prepared node broadcasts $\langle \text{COMMIT}, v, n, d(m), i \rangle$. Once a node collects <strong>$2f + 1$ Commit messages</strong>, it executes the request deterministically and replies to the client. The client accepts the result once it receives $f + 1$ identical replies.</li>
+            <li><strong>View Change Protocol (Liveness Against Malicious Primary):</strong> If the Primary is silent or equivocates, backup timers expire and replicas broadcast <code>VIEW-CHANGE</code> messages to elect the next Primary ($p = (v + 1) \bmod N$), ensuring a single malicious leader cannot freeze the blockchain.</li>
+          </ol>
+
+          <!-- Hinglish Explanation for Q5 -->
+          <div class="hinglish-master-box">
+            <div class="hinglish-header">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein Samjho — Q5: Byzantine Faults &amp; PBFT)</div>
+            <p><strong>1. Byzantine Fault Kya Hota Hai?</strong><br/>
+            Normal crash fault mein server bas band ho jata hai (jisko RAFT handle kar leta hai). Lekin <strong>Byzantine Fault</strong> ka matlab hai ki network ke andar koi server <strong>hack ho gaya hai ya malicious (gaddar)</strong> ban gaya hai! Woh jhoot bol sakta hai — jaise Node A ko bole "Block 10 sahi hai" aur Node B ko bole "Block 10 galat hai" (isko <em>Equivocation</em> kehte hain).</p>
+
+            <p><strong>2. $3f + 1$ Formula Kyun Lagta Hai?</strong><br/>
+            Agar network mein $f$ malicious (jhoot bolne wale) nodes ho sakte hain, toh sahi decision lene ke liye kam se kam <strong>$N = 3f + 1$ nodes</strong> chahiye. Example: Agar 1 node gaddar hai ($f=1$), toh total $3(1)+1 = 4$ nodes hone chahiye. Teen nodes ($N=3$) mein agar Commander ya ek Lieutenant jhoot bole toh honest node pata hi nahi laga sakta ki kaun jhoot bol raha hai!</p>
+
+            <p><strong>3. PBFT (Practical Byzantine Fault Tolerance) Kaise Agreement banata hai?</strong></p>
+            <ul>
+              <li><strong>Step 1 (Pre-Prepare):</strong> Primary (Leader) client ka block/transaction leke usko sequence number deta hai aur sabhi replicas ko bhejta hai.</li>
+              <li><strong>Step 2 (Prepare — Leader ka Jhoot Pakadne ke liye):</strong> Saare backup nodes ek-doosre ko <code>PREPARE</code> message bhej kar cross-check karte hain ki "Kya Primary ne sabko same block bheja hai?" Jab $2f$ Prepare messages match ho jate hain, toh confirm ho jata hai ki Leader ne cheating nahi ki.</li>
+              <li><strong>Step 3 (Commit — Final Lock):</strong> Ab saare nodes <code>COMMIT</code> message broadcast karte hain. Jaise hi $2f + 1$ Commit messages milte hain, block permanently lock ho jata hai aur client ko reply mil jata hai! Agar Leader time par kaam na kare toh <strong>View Change</strong> karke naya Primary chuna jata hai.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <script>
+    // Complete Question Bank Data (All 30 MCQs from Final-BCT-QB.pdf)
+    const mcqData = [
+      // ================= CO-01 (10 Questions) =================
+      {
+        id: "co1-q1",
+        co: "CO-01",
+        qNum: 1,
+        bl: "Remember",
+        question: "Which statement best defines a blockchain?",
+        options: [
+          "a) A centralized spreadsheet maintained by one administrator",
+          "b) A distributed ledger that records data in cryptographically linked blocks",
+          "c) A database used exclusively for image storage",
+          "d) A network protocol for sending emails"
+        ],
+        correct: 1,
+        expEn: "A blockchain is a decentralized, distributed digital ledger where transactions are grouped into blocks and linked sequentially using cryptographic hashes, making the history tamper-evident.",
+        expHi: "Blockchain ek distributed digital ledger (bahi-khata) hai jismein data blocks ke andar save hota hai aur har block pichle block se cryptographic hash ke zariye juda (linked) hota hai."
+      },
+      {
+        id: "co1-q2",
+        co: "CO-01",
+        qNum: 2,
+        bl: "Remember",
+        question: "Which of the following is a well-known public blockchain network?",
+        options: [
+          "a) A company-only private ledger",
+          "b) Bitcoin",
+          "c) A university's internal database",
+          "d) An offline accounting register"
+        ],
+        correct: 1,
+        expEn: "Bitcoin (launched in 2009 by Satoshi Nakamoto) is the world's first and best-known public, permissionless blockchain network where anyone can read, transact, or mine.",
+        expHi: "Bitcoin sabse famous Public Blockchain hai jismein duniya ka koi bhi insaan bina kisi central authority ki permission ke jud sakta hai aur transaction kar sakta hai."
+      },
+      {
+        id: "co1-q3",
+        co: "CO-01",
+        qNum: 3,
+        bl: "Understand",
+        question: "Why is consensus required in a distributed blockchain network?",
+        options: [
+          "a) To let each node maintain unrelated records",
+          "b) To ensure participating nodes agree on the valid ledger state",
+          "c) To eliminate all network communication",
+          "d) To prevent users from submitting transactions"
+        ],
+        correct: 1,
+        expEn: "Because there is no central server in a distributed blockchain, a consensus protocol ensures that all independent nodes agree on the exact same valid transactions and ledger state.",
+        expHi: "Blockchain mein koi ek boss ya central server nahi hota. Isliye saare nodes (computers) is baat par sehmat (agree) hon ki kaunsa transaction valid hai aur asli ledger balance kya hai, iske liye Consensus zaroori hai."
+      },
+      {
+        id: "co1-q4",
+        co: "CO-01",
+        qNum: 4,
+        bl: "Apply",
+        question: "Which mechanism makes unauthorized modification of recorded blockchain data detectable?",
+        options: [
+          "a) Manual data entry",
+          "b) Cryptographic hash linking between blocks",
+          "c) Increasing the monitor resolution",
+          "d) Renaming transaction files"
+        ],
+        correct: 1,
+        expEn: "Each block header stores the SHA-256 cryptographic hash of the previous block header. Altering even a single bit in an older block changes its hash, breaking the hash pointer link in all subsequent blocks (avalanche effect).",
+        expHi: "★ (CO-01 Q4 Detailed + Diagram Concept): Har block mein pichle block ka 'Previous Hash' store hota hai (Block N-1 → Block N → Block N+1). Agar koi hacker purane block ka data 1 अक्षर bhi badlega, toh uska Cryptographic Hash badal jayega aur aage ke saare blocks ka link toot jayega, jisse chhed-chhad turant pakdi jayegi!"
+      },
+      {
+        id: "co1-q5",
+        co: "CO-01",
+        qNum: 5,
+        bl: "Understand",
+        question: "What information in a typical block header connects it to the preceding block?",
+        options: [
+          "a) The miner's email address",
+          "b) The previous block's hash",
+          "c) The user's password",
+          "d) The transaction fee total only"
+        ],
+        correct: 1,
+        expEn: "Every block header contains a 'Previous Block Hash' field that stores the cryptographic hash of the parent block's header, forming an unbroken chain back to the Genesis Block.",
+        expHi: "Har block ke header mein 'Previous Block's Hash' naam ka field hota hai jo usse theek pichle wale block se jodkar ek chain banata hai."
+      },
+      {
+        id: "co1-q6",
+        co: "CO-01",
+        qNum: 6,
+        bl: "Analyze",
+        question: "Which characteristic distinguishes a permissioned blockchain from a public blockchain?",
+        options: [
+          "a) It never uses cryptography",
+          "b) Participation is restricted to authorized entities",
+          "c) It cannot record transactions",
+          "d) It always uses Proof of Work"
+        ],
+        correct: 1,
+        expEn: "In a permissioned blockchain (such as Hyperledger Fabric), an access-control layer (PKI/MSP) restricts network participation and validation rights strictly to authorized, identified entities.",
+        expHi: "Public blockchain mein koi bhi aa sakta hai, lekin Permissioned blockchain mein sirf wahi log ya companies jud sakti hain jinko pehle se authorization (permission aur identity certificate) mila ho."
+      },
+      {
+        id: "co1-q7",
+        co: "CO-01",
+        qNum: 7,
+        bl: "Remember",
+        question: "What does a digital signature help a blockchain node verify?",
+        options: [
+          "a) That a block has no transactions",
+          "b) The authenticity and integrity of signed data",
+          "c) That network latency is zero",
+          "d) That every user has the same private key"
+        ],
+        correct: 1,
+        expEn: "Created with the sender's private key and verified with their public key (e.g., ECDSA), a digital signature proves authenticity (the sender actually signed it), non-repudiation, and data integrity (the transaction was not modified in transit).",
+        expHi: "Digital Signature se दो cheezein verify hoti hain: 1) Authenticity (transaction asli malik ne hi apni Private Key se sign kiya hai) aur 2) Integrity (raste mein kisi ne transaction amount ya receiver address ke saath chhed-chhad nahi ki hai)."
+      },
+      {
+        id: "co1-q8",
+        co: "CO-01",
+        qNum: 8,
+        bl: "Understand",
+        question: "How does a Merkle tree help a blockchain?",
+        options: [
+          "a) It replaces all cryptographic hashes with passwords",
+          "b) It grants access to private keys",
+          "c) It supports efficient verification of transaction inclusion",
+          "d) It automatically reverses confirmed transactions"
+        ],
+        correct: 1 + 1, // index 2 (c)
+        expEn: "A Merkle tree (binary hash tree) summarizes all transactions in a block into a single 32-byte Merkle Root in the block header. It allows light clients (SPV nodes) to verify whether a specific transaction is included in a block in O(log n) time using a Merkle proof without downloading the entire block.",
+        expHi: "Merkle Tree block ke saare transactions ka hash jod-jod kar ek single 'Merkle Root' bana deta hai. Isse bina poora block download kiye sirf O(log n) steps mein fast check kiya ja sakta hai ki koi transaction us block mein hai ya nahi."
+      },
+      {
+        id: "co1-q9",
+        co: "CO-01",
+        qNum: 9,
+        bl: "Apply",
+        question: "A smart contract is best described as:",
+        options: [
+          "a) A paper agreement stored in a filing cabinet",
+          "b) A hardware component for mining",
+          "c) A manually operated transaction register",
+          "d) Program code that executes predefined rules when invoked"
+        ],
+        correct: 3,
+        expEn: "A smart contract is self-executing deterministic program code deployed on the blockchain that automatically enforces and executes predefined business rules when triggered by a transaction.",
+        expHi: "Smart Contract blockchain par likha gaya ek computer program (code) hota hai. Jaise hi uski शर्तें (predefined conditions) poori hoti hain, woh bina kisi insaan ya middleman ke automatically execute ho jata hai."
+      },
+      {
+        id: "co1-q10",
+        co: "CO-01",
+        qNum: 10,
+        bl: "Analyze",
+        question: "Which statement correctly compares public and private blockchains?",
+        options: [
+          "a) Both always require approval from the same central administrator",
+          "b) Public networks generally permit open participation, while private networks restrict participation",
+          "c) Private blockchains cannot use consensus",
+          "d) Public blockchains cannot record transactions"
+        ],
+        correct: 1,
+        expEn: "Public blockchains are permissionless (open to anyone globally), whereas private blockchains restrict network access and validation rights to approved participants within an organization.",
+        expHi: "Public networks (jaise Bitcoin) sabke liye open hote hain, jabki Private networks mein participation restricted hota hai — sirf authorized nodes hi join kar sakte hain."
+      },
+
+      // ================= CO-02 (10 Questions) =================
+      {
+        id: "co2-q1",
+        co: "CO-02",
+        qNum: 1,
+        bl: "Remember",
+        question: "What is Bitcoin primarily designed to support?",
+        options: [
+          "a) Centralized storage of passwords",
+          "b) Printing physical currency",
+          "c) Peer-to-peer digital value transfer",
+          "d) Monitoring social media profiles"
+        ],
+        correct: 2,
+        expEn: "As titled in Satoshi Nakamoto's whitepaper ('Bitcoin: A Peer-to-Peer Electronic Cash System'), Bitcoin is designed to allow direct peer-to-peer transfer of digital value without relying on financial intermediaries.",
+        expHi: "Bitcoin ko 'Peer-to-Peer Electronic Cash System' ke roop mein banaya gaya hai taaki do log bina bank ya middleman ke seedha ek-doosre ko digital paisa (value) bhej sakein."
+      },
+      {
+        id: "co2-q2",
+        co: "CO-02",
+        qNum: 2,
+        bl: "Understand",
+        question: "Which situation illustrates double spending?",
+        options: [
+          "a) A miner receives a block reward",
+          "b) A wallet generates a new address",
+          "c) The same digital coins are attempted to be spent in two transactions",
+          "d) A transaction includes multiple outputs"
+        ],
+        correct: 2,
+        expEn: "Double spending is the flaw where a user attempts to spend the exact same digital token (UTXO) more than once in two conflicting transactions sent to different recipients.",
+        expHi: "Double Spending ka matlab hai ek hi digital coin (same UTXO) ko do alag-alag jagah kharch karne ki koshish karna — jaise aapke paas 1 BTC hai aur aap wahi 1 BTC ek saath Bob aur Charlie dono ko bhej do."
+      },
+      {
+        id: "co2-q3",
+        co: "CO-02",
+        qNum: 3,
+        bl: "Remember",
+        question: "Bitcoin transaction messages are propagated mainly through which network model?",
+        options: [
+          "a) Client-server only",
+          "b) Single-computer network",
+          "c) Peer-to-peer network",
+          "d) Offline batch network"
+        ],
+        correct: 2,
+        expEn: "Bitcoin uses an unstructured peer-to-peer (P2P) gossip protocol over TCP port 8333, where each node forwards validated transactions and blocks to its connected neighbor peers.",
+        expHi: "Bitcoin mein koi central server nahi hota; saare nodes ek-doosre se Peer-to-Peer (P2P) network model (gossip protocol) ke zariye jude hote hain aur messages aage forward karte hain."
+      },
+      {
+        id: "co2-q4",
+        co: "CO-02",
+        qNum: 4,
+        bl: "Understand",
+        question: "Which task is associated with Bitcoin miners?",
+        options: [
+          "a) Issuing bank account statements",
+          "b) Deleting valid transactions",
+          "c) Validating candidate transactions and assembling blocks",
+          "d) Assigning usernames to wallet owners"
+        ],
+        correct: 2,
+        expEn: "Bitcoin miners collect unconfirmed transactions from the mempool, verify their digital signatures and UTXO validity (preventing double-spending), assemble them into a candidate block, and solve the Proof-of-Work puzzle.",
+        expHi: "★ (CO-02 Q4 Detailed Concept): Bitcoin miners ka main kaam mempool se unconfirmed transactions uthana, unke signatures aur balance (UTXO) ko validate karna, unhe ek Candidate Block mein assemble karna aur Proof-of-Work nonce dhoondhna hota hai."
+      },
+      {
+        id: "co2-q5",
+        co: "CO-02",
+        qNum: 5,
+        bl: "Apply",
+        question: "What is the purpose of Proof of Work in Bitcoin?",
+        options: [
+          "a) To remove the need for verification",
+          "b) To make every node a central authority",
+          "c) To guarantee free electricity for miners",
+          "d) To make block creation costly and support consensus in an open network"
+        ],
+        correct: 3,
+        expEn: "Proof of Work (PoW) requires miners to expend real computational power to find a nonce whose SHA-256 block hash is below a target threshold. This makes Sybil attacks and history rewriting economically infeasible while enabling leaderless consensus.",
+        expHi: "Open network mein koi fake IDs bana kar voting hack na kar le (Sybil Attack), isliye Proof of Work block banane ko computationally mehnga (costly) banata hai aur sabhi nodes ko longest valid chain par consensus dilata hai."
+      },
+      {
+        id: "co2-q6",
+        co: "CO-02",
+        qNum: 6,
+        bl: "Analyze",
+        question: "Why may miners participate in a mining pool?",
+        options: [
+          "a) To ensure every miner independently finds each block",
+          "b) To eliminate all competition permanently",
+          "c) To combine hash power and share rewards according to contribution",
+          "d) To disable transaction validation"
+        ],
+        correct: 2,
+        expEn: "Solo mining has extremely high variance; an individual miner might wait years to find a block. By joining a mining pool, miners aggregate their hash rate and receive steady, proportional payouts based on the computational shares they contribute.",
+        expHi: "Akele (Solo) mining karne par block milne ke chances lottery jaise bahut kam hote hain. Isliye kai miners milkar apni hash power ek 'Mining Pool' mein jod lete hain aur jab bhi pool ko block reward milta hai, sabko unke contribution ke hisaab se hissa mil jata hai."
+      },
+      {
+        id: "co2-q7",
+        co: "CO-02",
+        qNum: 7,
+        bl: "Apply",
+        question: "What generally happens to Bitcoin mining difficulty when the network's hash rate rises substantially, all else being equal?",
+        options: [
+          "a) It must immediately become zero",
+          "b) It removes the need for a target",
+          "c) The protocol's difficulty adjustment may increase difficulty to maintain the target block interval",
+          "d) It prevents blocks from being propagated"
+        ],
+        correct: 2,
+        expEn: "Every 2,016 blocks (roughly 2 weeks), Bitcoin automatically recalibrates its mining difficulty. If total network hash rate increases and blocks are mined faster than 10 minutes on average, the protocol increases difficulty (lowers the target threshold) to restore the ~10-minute block interval.",
+        expHi: "Bitcoin ka rule hai ki har block lagbhag 10 minute mein banna chahiye. Agar network mein naye miners aane se Hash Rate badh jata hai aur blocks jaldi banne lagte hain, toh har 2016 blocks ke baad protocol automatically 'Mining Difficulty' badha deta hai taaki 10-minute ka average maintain rahe."
+      },
+      {
+        id: "co2-q8",
+        co: "CO-02",
+        qNum: 8,
+        bl: "Remember",
+        question: "What does Bitcoin Script specify?",
+        options: [
+          "a) The market price of Bitcoin",
+          "b) The visual design of wallet software",
+          "c) The physical location of miners",
+          "d) Rules and conditions for spending transaction outputs"
+        ],
+        correct: 3,
+        expEn: "Bitcoin Script is a stack-based, purposefully non-Turing-complete scripting language used in locking scripts (scriptPubKey) and unlocking scripts (scriptSig) to define the exact cryptographic conditions required to spend a UTXO.",
+        expHi: "Bitcoin Script ek stack-based programming language hai jo har transaction output (UTXO) par ताला (Locking Script) aur चाबी (Unlocking Script) lagati hai — yani yeh batati hai ki un coins ko aage kharch karne ki kya conditions hain."
+      },
+      {
+        id: "co2-q9",
+        co: "CO-02",
+        qNum: 9,
+        bl: "Analyze",
+        question: "What is the central concern in a 51% attack on a Proof-of-Work blockchain?",
+        options: [
+          "a) All public keys become identical",
+          "b) The network loses all internet connectivity",
+          "c) A participant controlling majority hash power may reorganize recent blocks or censor transactions",
+          "d) Every transaction becomes private by default"
+        ],
+        correct: 2,
+        expEn: "If an attacker controls >50% of the network's total mining hash rate, they can outpace honest miners to build a longer secret chain, allowing them to reorganize recent blocks (double-spend their own recent transactions) and censor specific transactions.",
+        expHi: "Agar kisi attacker ke paas pure network ki 50% se zyada mining power (Hash Rate) aa jaye, toh woh sabse lambi chain khud bana sakta hai, jisse woh recent blocks ko बदल (reorganize/double-spend) sakta hai ya dusron ke transactions ko block/censor kar sakta hai."
+      },
+      {
+        id: "co2-q10",
+        co: "CO-02",
+        qNum: 10,
+        bl: "Understand",
+        question: "After creating a candidate block, what should a miner do when the block satisfies the Proof-of-Work requirement?",
+        options: [
+          "a) Erase the previous block",
+          "b) Change every transaction signature",
+          "c) Disable all peer connections",
+          "d) Broadcast the block so other nodes can validate it"
+        ],
+        correct: 3,
+        expEn: "Once a miner finds a valid nonce that produces a block hash below the target, the miner immediately broadcasts the new block across the P2P network so full nodes can independently verify and append it to their ledger.",
+        expHi: "Jaise hi miner ko sahi Nonce mil jata hai aur Proof-of-Work puzzle solve ho jata hai, miner turant us block ko pure P2P network mein broadcast kar deta hai taaki baaki saare nodes usse verify karke apni blockchain mein jod lein."
+      },
+
+      // ================= CO-03 (10 Questions) =================
+      {
+        id: "co3-q1",
+        co: "CO-03",
+        qNum: 1,
+        bl: "Remember",
+        question: "Which description best fits a permissioned blockchain?",
+        options: [
+          "a) A ledger with no participating nodes",
+          "b) A system that permits anyone to validate without restrictions",
+          "c) A database that does not store records",
+          "d) A blockchain in which participation is limited to approved entities"
+        ],
+        correct: 3,
+        expEn: "A permissioned blockchain uses an access control and identity management layer to ensure that only pre-approved, authenticated entities can join the network, submit transactions, or validate blocks.",
+        expHi: "Permissioned blockchain woh blockchain hai jismein har kisi ko entry nahi milti — sirf approved aur verified organizations/entities hi network mein participate kar sakti hain."
+      },
+      {
+        id: "co3-q2",
+        co: "CO-03",
+        qNum: 2,
+        bl: "Understand",
+        question: "Which setting is particularly suitable for a permissioned blockchain?",
+        options: [
+          "a) An anonymous public forum with unrestricted participation",
+          "b) A standalone calculator",
+          "c) A personal text editor",
+          "d) An enterprise network shared by identified organizations"
+        ],
+        correct: 3,
+        expEn: "Permissioned blockchains excel in B2B and enterprise consortium environments (such as supply chains, healthcare networks, or inter-bank settlement) where organizations are known, regulated entities that require shared state without public exposure.",
+        expHi: "Jab multiple known companies, banks ya suppliers (Enterprise Consortium) aapas mein data aur transactions share karna chahte hain jahan har company ki identity known ho, wahan Permissioned Blockchain sabse best fit hota hai."
+      },
+      {
+        id: "co3-q3",
+        co: "CO-03",
+        qNum: 3,
+        bl: "Analyze",
+        question: "Which issue must be considered when designing a permissioned blockchain?",
+        options: [
+          "a) Removing all participant identities",
+          "b) Allowing every user unrestricted validator access",
+          "c) Avoiding all agreement protocols",
+          "d) Managing participant authorization, trust, and security"
+        ],
+        correct: 3,
+        expEn: "Designing a permissioned network requires careful governance of Public Key Infrastructure (PKI), Membership Service Providers (MSP), role-based authorization, channel confidentiality, and fault-tolerant consensus.",
+        expHi: "Permissioned blockchain design karte waqt sabse zaroori cheez hai participants ki identity verify karna, kis node ko kya permission deni hai (authorization), aur unke beech trust aur security manage karna."
+      },
+      {
+        id: "co3-q4",
+        co: "CO-03",
+        qNum: 4,
+        bl: "Remember",
+        question: "What is the main idea of State Machine Replication (SMR)?",
+        options: [
+          "a) Keeping data on a single unreplicated computer",
+          "b) Executing different commands in arbitrary order at every node",
+          "c) Deleting state after each transaction",
+          "d) Replicating state by having nodes process the same ordered commands"
+        ],
+        correct: 3,
+        expEn: "State Machine Replication (SMR) guarantees that multiple distributed server replicas stay in the exact same state by starting from the same initial state and deterministically executing the exact same sequence of ordered commands.",
+        expHi: "★ (CO-03 Q4 Detailed Concept): State Machine Replication (SMR) ka main rule yeh hai ki agar saare nodes ek hi initial state se start karein aur bilkul same order (sequence) mein transactions ko process karein, toh har node ka final state hamesha 100% identical rahega!"
+      },
+      {
+        id: "co3-q5",
+        co: "CO-03",
+        qNum: 5,
+        bl: "Understand",
+        question: "Which consensus approach is commonly associated with crash-fault-tolerant replicated services in permissioned systems?",
+        options: [
+          "a) Proof of Burn",
+          "b) Bitcoin mining only",
+          "c) Hashcash for every transaction",
+          "d) RAFT"
+        ],
+        correct: 3,
+        expEn: "RAFT is a widely adopted Crash Fault Tolerant (CFT) consensus protocol used in permissioned blockchains (such as Hyperledger Fabric's ordering service) to maintain replicated logs across trusted/authenticated nodes.",
+        expHi: "Permissioned systems mein Crash-Fault-Tolerant (CFT) consensus ke liye 'RAFT' sabse zyada use hota hai (jaise Hyperledger Fabric mein), jo server crash hone par bhi system ko chalaye rakhta hai."
+      },
+      {
+        id: "co3-q6",
+        co: "CO-03",
+        qNum: 6,
+        bl: "Apply",
+        question: "In RAFT, what is the purpose of electing a leader?",
+        options: [
+          "a) To let the leader modify committed entries without replication",
+          "b) To replace all follower nodes permanently",
+          "c) To eliminate communication between servers",
+          "d) To coordinate log replication and help nodes agree on the ordered log"
+        ],
+        correct: 3,
+        expEn: "In RAFT, the elected Leader acts as the central coordinator for its term: it accepts client transactions, appends them in sequence, and replicates them via AppendEntries RPCs so all followers agree on a single ordered log.",
+        expHi: "RAFT mein Leader isliye chuna jata hai taaki ek single node client ke transactions ko accept kare aur baaki saare Follower nodes ko same sequence mein log replicate karwake agreement (consensus) banwaye."
+      },
+      {
+        id: "co3-q7",
+        co: "CO-03",
+        qNum: 7,
+        bl: "Analyze",
+        question: "The Byzantine Generals Problem illustrates the challenge of:",
+        options: [
+          "a) Compressing transaction data",
+          "b) Increasing a database's storage capacity",
+          "c) Creating user interface themes",
+          "d) Reaching agreement when some participants may be faulty or malicious"
+        ],
+        correct: 3,
+        expEn: "Formulated by Lamport, Shostak, and Pease (1982), the Byzantine Generals Problem demonstrates how distributed parties must achieve unanimous consensus on a strategy even when some nodes fail arbitrarily or send deceptive, conflicting messages.",
+        expHi: "Byzantine Generals Problem yeh samjhata hai ki jab ek distributed network mein kuch nodes kharab (faulty) ya gaddar/malicious (jhoot bolne wale) hon, tab bhi baaki imandar (honest) nodes aapas mein sahi agreement (consensus) kaise banayein."
+      },
+      {
+        id: "co3-q8",
+        co: "CO-03",
+        qNum: 8,
+        bl: "Remember",
+        question: "What capability does Byzantine Fault Tolerance provide?",
+        options: [
+          "a) It assumes every participant is always honest",
+          "b) It removes the need for messages",
+          "c) It works only with one server",
+          "d) It allows a system to reach agreement despite a limited number of faulty or malicious nodes"
+        ],
+        correct: 3,
+        expEn: "Byzantine Fault Tolerance (BFT) enables a distributed blockchain network of N >= 3f + 1 nodes to continue reaching valid consensus even when up to f nodes behave maliciously or arbitrarily fail.",
+        expHi: "Byzantine Fault Tolerance (BFT) system ko yeh taqat deta hai ki agar network mein kuch had tak (up to f out of 3f+1) nodes hack ya malicious bhi ho jayein, tab bhi system sahi consensus par pahunche."
+      },
+      {
+        id: "co3-q9",
+        co: "CO-03",
+        qNum: 9,
+        bl: "Understand",
+        question: "The Lamport–Shostak–Pease algorithms are associated with:",
+        options: [
+          "a) Mining Bitcoin blocks",
+          "b) Designing database indexes",
+          "c) Generating cryptocurrency market prices",
+          "d) Byzantine agreement in distributed systems"
+        ],
+        correct: 3,
+        expEn: "Leslie Lamport, Robert Shostak, and Marshall Pease authored the landmark 1982 paper 'The Byzantine Generals Problem', introducing the foundational oral-message (OM) and signed-message (SM) algorithms for Byzantine agreement.",
+        expHi: "Lamport, Shostak aur Pease ne 1982 mein 'Byzantine Generals Problem' paper likha tha aur distributed systems mein Byzantine agreement paane ke liye foundational algorithms diye the."
+      },
+      {
+        id: "co3-q10",
+        co: "CO-03",
+        qNum: 10,
+        bl: "Apply",
+        question: "Why is asynchronous Byzantine fault-tolerant consensus challenging?",
+        options: [
+          "a) All messages arrive at exactly the same time",
+          "b) There are no faulty nodes",
+          "c) Every node shares one physical clock",
+          "d) Message delays are unpredictable and cannot be bounded in advance"
+        ],
+        correct: 3,
+        expEn: "In an asynchronous network, message delivery delays have no upper bound. Consequently, a node cannot tell whether a silent peer has crashed/is maliciously withholding a vote or is simply experiencing slow network transit (the FLP Impossibility result).",
+        expHi: "Asynchronous network mein message kab pahunchega iski koi time limit (bound) nahi hoti. Isliye yeh pata lagana bahut mushkil ho jata hai ki samne wala node sach mein crash/malicious hai ya bas internet slow hone ki wajah se uska reply late aa raha hai!"
+      }
+    ];
+
+    let currentFilter = 'all-mcq';
+    let userAnswers = {}; // { id: selectedIndex }
+    let showAllExp = false;
+
+    function renderMCQs() {
+      const container = document.getElementById('mcq-container');
+      const searchQuery = (document.getElementById('mcq-search').value || '').toLowerCase().trim();
+      container.innerHTML = '';
+
+      const filtered = mcqData.filter(item => {
+        if (currentFilter === 'co1' && item.co !== 'CO-01') return false;
+        if (currentFilter === 'co2' && item.co !== 'CO-02') return false;
+        if (currentFilter === 'co3' && item.co !== 'CO-03') return false;
+        if (searchQuery) {
+          const textBlob = `${item.co} q${item.qNum} ${item.question} ${item.options.join(' ')} ${item.expEn} ${item.expHi}`.toLowerCase();
+          return textBlob.includes(searchQuery);
+        }
+        return true;
+      });
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'q-card';
+        if (item.qNum === 4) {
+          card.style.borderColor = '#6366f1';
+        }
+
+        const answeredIdx = userAnswers[item.id];
+        const isAnswered = answeredIdx !== undefined;
+
+        let optionsHtml = '';
+        item.options.forEach((optText, idx) => {
+          const letters = ['A', 'B', 'C', 'D'];
+          let btnClass = 'opt-btn';
+          if (isAnswered || showAllExp) {
+            if (idx === item.correct) {
+              btnClass += ' correct';
+            } else if (isAnswered && idx === answeredIdx && answeredIdx !== item.correct) {
+              btnClass += ' wrong';
+            }
+          }
+          optionsHtml += `
+            <button class="${btnClass}" onclick="selectOption('${item.id}', ${idx})">
+              <span class="opt-letter">${letters[idx]}</span>
+              <span>${optText.substring(3)}</span>
+            </button>
+          `;
+        });
+
+        // Special extra SVG mini-diagram for Q4 in MCQ sections so even MCQ Q4 has a diagram!
+        let extraQ4Diagram = '';
+        if (item.id === 'co1-q4') {
+          extraQ4Diagram = `
+            <div class="diagram-wrapper" style="margin-top:0.85rem; padding:0.85rem;">
+              <div class="diagram-caption">CO-01 Q4 Diagram: Cryptographic Hash Linking &amp; Tamper Detection Across Blocks</div>
+              <svg class="diagram-svg" viewBox="0 0 760 130" width="760" height="130" xmlns="http://www.w3.org/2000/svg">
+                <rect width="760" height="130" rx="8" fill="#0b1120"/>
+                <rect x="20" y="20" width="210" height="90" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.8"/>
+                <text x="125" y="42" fill="#34d399" font-size="12" font-weight="bold" text-anchor="middle">Block #101</text>
+                <text x="125" y="62" fill="#cbd5e1" font-size="10.5" text-anchor="middle">PrevHash: 0000a8f1...</text>
+                <text x="125" y="80" fill="#facc15" font-size="10.5" font-weight="bold" text-anchor="middle">BlockHash: 0000b4c9</text>
+                <line x1="230" y1="65" x2="275" y2="65" stroke="#10b981" stroke-width="2.5"/>
+                <rect x="275" y="20" width="210" height="90" rx="8" fill="#2d121e" stroke="#f43f5e" stroke-width="2"/>
+                <text x="380" y="42" fill="#fb7185" font-size="12" font-weight="bold" text-anchor="middle">Block #102 (Tampered!)</text>
+                <text x="380" y="62" fill="#cbd5e1" font-size="10.5" text-anchor="middle">PrevHash: 0000b4c9 (OK)</text>
+                <text x="380" y="80" fill="#f43f5e" font-size="10.5" font-weight="bold" text-anchor="middle">New Hash: 9f81e2a0 ≠ 0000d7e2</text>
+                <line x1="485" y1="65" x2="530" y2="65" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="4,3"/>
+                <rect x="530" y="20" width="210" height="90" rx="8" fill="#1e293b" stroke="#f43f5e" stroke-width="1.8"/>
+                <text x="635" y="42" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">Block #103 (Link Broken!)</text>
+                <text x="635" y="62" fill="#f43f5e" font-size="10.5" font-weight="bold" text-anchor="middle">Stored Prev: 0000d7e2 (MISMATCH)</text>
+                <text x="635" y="82" fill="#94a3b8" font-size="10" text-anchor="middle">Nodes immediately reject modification</text>
+              </svg>
+            </div>
+          `;
+        } else if (item.id === 'co2-q4') {
+          extraQ4Diagram = `
+            <div class="diagram-wrapper" style="margin-top:0.85rem; padding:0.85rem;">
+              <div class="diagram-caption">CO-02 Q4 Diagram: Bitcoin Miner Pipeline (Validate Tx → Assemble Block → PoW Nonce)</div>
+              <svg class="diagram-svg" viewBox="0 0 760 120" width="760" height="120" xmlns="http://www.w3.org/2000/svg">
+                <rect width="760" height="120" rx="8" fill="#0b1120"/>
+                <rect x="18" y="25" width="160" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+                <text x="98" y="55" fill="#38bdf8" font-size="11.5" font-weight="bold" text-anchor="middle">1. Mempool Txs</text>
+                <text x="98" y="74" fill="#cbd5e1" font-size="10" text-anchor="middle">Verify Signatures &amp; UTXOs</text>
+                <line x1="178" y1="60" x2="212" y2="60" stroke="#38bdf8" stroke-width="2"/>
+                <rect x="212" y="25" width="165" height="70" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+                <text x="294" y="55" fill="#c084fc" font-size="11.5" font-weight="bold" text-anchor="middle">2. Candidate Block</text>
+                <text x="294" y="74" fill="#cbd5e1" font-size="10" text-anchor="middle">Build Merkle Root + Header</text>
+                <line x1="377" y1="60" x2="410" y2="60" stroke="#a855f7" stroke-width="2"/>
+                <rect x="410" y="25" width="155" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="487" y="55" fill="#fbbf24" font-size="11.5" font-weight="bold" text-anchor="middle">3. Proof of Work</text>
+                <text x="487" y="74" fill="#cbd5e1" font-size="10" text-anchor="middle">Find Nonce (Hash &lt; Target)</text>
+                <line x1="565" y1="60" x2="598" y2="60" stroke="#10b981" stroke-width="2"/>
+                <rect x="598" y="25" width="145" height="70" rx="8" fill="#063e2e" stroke="#10b981" stroke-width="1.8"/>
+                <text x="670" y="55" fill="#34d399" font-size="11.5" font-weight="bold" text-anchor="middle">4. Broadcast</text>
+                <text x="670" y="74" fill="#d1fae5" font-size="10" text-anchor="middle">Append to Blockchain</text>
+              </svg>
+            </div>
+          `;
+        } else if (item.id === 'co3-q4') {
+          extraQ4Diagram = `
+            <div class="diagram-wrapper" style="margin-top:0.85rem; padding:0.85rem;">
+              <div class="diagram-caption">CO-03 Q4 Diagram: State Machine Replication (Identical Ordered Log → Identical State)</div>
+              <svg class="diagram-svg" viewBox="0 0 760 120" width="760" height="120" xmlns="http://www.w3.org/2000/svg">
+                <rect width="760" height="120" rx="8" fill="#0b1120"/>
+                <rect x="20" y="30" width="210" height="60" rx="8" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1.8"/>
+                <text x="125" y="55" fill="#c084fc" font-size="11.5" font-weight="bold" text-anchor="middle">Ordered Command Log</text>
+                <text x="125" y="74" fill="#facc15" font-size="10.5" font-weight="bold" text-anchor="middle">[Cmd 1 → Cmd 2 → Cmd 3]</text>
+                <line x1="230" y1="60" x2="290" y2="60" stroke="#8b5cf6" stroke-width="2"/>
+                <rect x="290" y="18" width="215" height="36" rx="6" fill="#0f2922" stroke="#10b981" stroke-width="1.5"/>
+                <text x="397" y="40" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Node A: S0 → S1 → S2 → S3</text>
+                <rect x="290" y="66" width="215" height="36" rx="6" fill="#0f2922" stroke="#10b981" stroke-width="1.5"/>
+                <text x="397" y="88" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle">Node B: S0 → S1 → S2 → S3</text>
+                <line x1="505" y1="60" x2="555" y2="60" stroke="#10b981" stroke-width="2"/>
+                <rect x="555" y="30" width="185" height="60" rx="8" fill="#064e3b" stroke="#34d399" stroke-width="1.8"/>
+                <text x="647" y="56" fill="#fff" font-size="11.5" font-weight="bold" text-anchor="middle">100% Consistent State</text>
+                <text x="647" y="74" fill="#a7f3d0" font-size="10" text-anchor="middle">Replicated Across All Nodes</text>
+              </svg>
+            </div>
+          `;
+        }
+
+        const expVisibleClass = (isAnswered || showAllExp) ? 'exp-box visible' : 'exp-box';
+
+        card.innerHTML = `
+          <div class="q-header">
+            <div class="q-badges">
+              <span class="badge badge-co">${item.co} • Q.${item.qNum}</span>
+              <span class="badge badge-bl">BL: ${item.bl}</span>
+              <span class="badge badge-marks">1 Mark</span>
+              ${item.qNum === 4 ? '<span class="badge" style="background:rgba(99,102,241,0.2);color:#a5b4fc;border:1px solid #6366f1;">★ Q4 Diagram Included</span>' : ''}
+            </div>
+          </div>
+          <div class="q-title">${item.qNum}. ${item.question}</div>
+          <div class="options-list">
+            ${optionsHtml}
+          </div>
+          <div class="${expVisibleClass}" id="exp-${item.id}">
+            <div class="exp-grid">
+              <div class="exp-card-en">
+                <div class="exp-label">📘 Detailed Explanation (English)</div>
+                <div><strong>Correct Answer: ${item.options[item.correct]}</strong><br/>${item.expEn}</div>
+              </div>
+              <div class="exp-card-hi">
+                <div class="exp-label">🇮🇳 Hinglish Explanation (Asaan Bhasha Mein)</div>
+                <div>${item.expHi}</div>
+              </div>
+            </div>
+            ${extraQ4Diagram}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      updateScoreBoard();
+    }
+
+    function selectOption(qId, optIdx) {
+      userAnswers[qId] = optIdx;
+      renderMCQs();
+    }
+
+    function updateScoreBoard() {
+      const attempted = Object.keys(userAnswers).length;
+      let correctCount = 0;
+      for (const [qId, ansIdx] of Object.entries(userAnswers)) {
+        const qObj = mcqData.find(x => x.id === qId);
+        if (qObj && qObj.correct === ansIdx) {
+          correctCount++;
+        }
+      }
+      const scoreEl = document.getElementById('score-display');
+      scoreEl.textContent = `Score: ${correctCount} / ${attempted} (${attempted}/30 Attempted)`;
+
+      const pct = Math.round((attempted / mcqData.length) * 100);
+      document.getElementById('quiz-progress').style.width = `${pct}%`;
+    }
+
+    function toggleAllExplanations() {
+      showAllExp = !showAllExp;
+      const btn = document.getElementById('toggle-exp-btn');
+      btn.textContent = showAllExp ? 'Hide Unattempted Answers' : 'Show All Answers & Hinglish';
+      renderMCQs();
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      showAllExp = false;
+      document.getElementById('toggle-exp-btn').textContent = 'Show All Answers & Hinglish';
+      renderMCQs();
+    }
+
+    function switchView(view) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const mcqSec = document.getElementById('mcq-section');
+      const descSec = document.getElementById('descriptive-section');
+
+      if (view === 'descriptive') {
+        document.getElementById('tab-descriptive').classList.add('active');
+        mcqSec.classList.add('hidden');
+        descSec.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        currentFilter = view;
+        document.getElementById(`tab-${view}`).classList.add('active');
+        descSec.classList.add('hidden');
+        mcqSec.classList.remove('hidden');
+
+        const titles = {
+          'all-mcq': 'All Multiple-Choice Questions (CO-01, CO-02 & CO-03 — 30 Questions)',
+          'co1': 'CO-01 Multiple-Choice Questions (Blockchain Fundamentals — 10 Questions)',
+          'co2': 'CO-02 Multiple-Choice Questions (Bitcoin & Proof of Work — 10 Questions)',
+          'co3': 'CO-03 Multiple-Choice Questions (Permissioned Blockchains, RAFT & BFT — 10 Questions)'
+        };
+        document.getElementById('mcq-view-title').textContent = titles[view] || titles['all-mcq'];
+        renderMCQs();
+      }
+    }
+
+    function scrollToDesc(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Initialize on load
+    renderMCQs();
+  </script>
+</body>
+</html>
