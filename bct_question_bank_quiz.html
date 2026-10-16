@@ -688,6 +688,157 @@
       .inst-title { font-size: 1.2rem; }
       .options-list { grid-template-columns: 1fr; }
       .desc-card { padding: 1.2rem; }
+      .footer-content { flex-direction: column; text-align: center; }
+      .footer-profile { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; width: 100%; }
+    }
+
+    /* Author Meta Pills & Nav Links */
+    .author-pill {
+      text-decoration: none;
+      background: rgba(99, 102, 241, 0.15) !important;
+      border: 1px solid rgba(99, 102, 241, 0.4) !important;
+      color: #c7d2fe !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .author-pill:hover {
+      background: rgba(99, 102, 241, 0.3) !important;
+      border-color: #818cf8 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-link-btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link-btn.portfolio-link {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      color: #ffffff !important;
+      border-color: #60a5fa;
+    }
+
+    .nav-link-btn.portfolio-link:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Footer Styling */
+    .app-footer {
+      background: linear-gradient(180deg, #0f172a 0%, #060911 100%);
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 4rem;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-avatar {
+      font-size: 2rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-profile h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-profile p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .footer-btn.portfolio-btn {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+
+    .footer-btn.portfolio-btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .footer-btn.github-btn {
+      background: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .footer-btn.github-btn:hover {
+      background: #334155;
+      border-color: #94a3b8;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .footer-btn.repo-btn {
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .footer-btn.repo-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
@@ -707,6 +858,12 @@
           <div class="meta-pill"><strong>Code:</strong> BTCOE704C</div>
           <div class="meta-pill"><strong>Course:</strong> Blockchain Technology</div>
           <div class="meta-pill"><strong>Coordinator:</strong> Dr. R. V. Patil</div>
+          <a href="https://himesh-raghuwanshi.vercel.app/" target="_blank" rel="noopener noreferrer" class="meta-pill author-pill" title="Himesh Raghuwanshi — AI/ML Developer Portfolio">
+            👨‍💻 <strong>Developer:</strong> Himesh Raghuwanshi (Portfolio ↗)
+          </a>
+          <a href="https://github.com/himesh112005" target="_blank" rel="noopener noreferrer" class="meta-pill author-pill" title="GitHub Account">
+            🐙 <strong>GitHub:</strong> @himesh112005
+          </a>
         </div>
       </div>
     </div>
@@ -726,6 +883,8 @@
         <div class="score-chip" id="score-display">Score: 0 / 0 (0 Attempted)</div>
         <button class="action-btn" onclick="toggleAllExplanations()" id="toggle-exp-btn">Show All Answers &amp; Hinglish</button>
         <button class="action-btn" onclick="resetQuiz()">Reset Quiz</button>
+        <a href="https://himesh-raghuwanshi.vercel.app/" target="_blank" rel="noopener noreferrer" class="action-btn nav-link-btn portfolio-link" title="Visit Developer Portfolio">🌐 Portfolio</a>
+        <a href="https://github.com/himesh112005/bct-mse-exam-" target="_blank" rel="noopener noreferrer" class="action-btn nav-link-btn" title="View Source on GitHub">🐙 GitHub</a>
       </div>
     </div>
   </nav>
@@ -1521,6 +1680,33 @@
     </section>
 
   </main>
+
+  <!-- Application Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div class="footer-profile">
+        <div class="footer-avatar">👨‍💻</div>
+        <div>
+          <h3>Himesh Raghuwanshi</h3>
+          <p>AI/ML Developer • Generative AI, Agentic AI, NLP, Deep Learning</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://himesh-raghuwanshi.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-btn portfolio-btn" title="View Portfolio Website">
+          <span>🌐</span> Portfolio Website
+        </a>
+        <a href="https://github.com/himesh112005" target="_blank" rel="noopener noreferrer" class="footer-btn github-btn" title="GitHub Profile">
+          <span>🐙</span> GitHub Profile
+        </a>
+        <a href="https://github.com/himesh112005/bct-mse-exam-" target="_blank" rel="noopener noreferrer" class="footer-btn repo-btn" title="GitHub Repository">
+          <span>⭐</span> Exam Repository
+        </a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 BTCOE704C: Blockchain Technology Portal • Curated &amp; Developed with ❤️ by <a href="https://himesh-raghuwanshi.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 600;">Himesh Raghuwanshi</a></p>
+    </div>
+  </footer>
 
   <script>
     // Complete Question Bank Data (All 30 MCQs from Final-BCT-QB.pdf)
